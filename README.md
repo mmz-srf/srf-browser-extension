@@ -20,6 +20,8 @@ cd srf-browser-extension
 
 Load the unpacked extension by following this [guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) and using the srf-browser-extension directory.
 
+"unpacked" means that the extension is now loaded from the web store but that it is loaded as-is from your local directory.
+
 ### TODO
 * enhance readme
 * set up auto-publish with github workflow
