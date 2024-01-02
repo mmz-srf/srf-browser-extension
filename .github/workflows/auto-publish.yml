@@ -70,9 +70,9 @@ jobs:
           node-version: "16.10"
 
       - name: Download bundle artifact
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
         with:
-          name: artifact
+          name: my-artifact
 
       - name: Install webstore cli
         run: |-
