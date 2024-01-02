@@ -17,7 +17,8 @@ jobs:
       # ..
       - name: Build
         run: |
-          zip -r chrome-extension-test.zip
+          cd ../
+          zip -r chrome-extension-test.zip .
 
       # https://github.com/actions/upload-artifact
       - name: Archive chrome-extension artifact
