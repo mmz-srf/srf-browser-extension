@@ -10,8 +10,6 @@ This bad boy
 * has a list of handy-dandy links that you might use often but are too lazy to save in your bookmarks
 * can be updated by the CMS developers, so if something breaks you can actually be mad at someone!
 * comes in 2 fashionable color themes: aaaaah-my-eyes white and whats-that-on-my-screen black
-![sith](https://user-images.githubusercontent.com/21658108/112665524-728ddd00-8e5b-11eb-8339-152ecf1f0306.png)
-![jedi](https://user-images.githubusercontent.com/21658108/112665529-73bf0a00-8e5b-11eb-9786-a8b4a3ce946c.png)
 
 
 ### Local Setup (WIP)
@@ -20,8 +18,9 @@ git clone git@github.com:mmz-srf/srf-browser-extension.git
 cd srf-browser-extension
 ```
 
+Load the unpacked extension by following this [guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) and using the srf-browser-extension directory.
+
 ### TODO
 * enhance readme
 * set up auto-publish with github workflow
 * redesign
-* remove old and broken features
