@@ -80,9 +80,7 @@ jobs:
 
       - name: Upload step
         run: |
-          chrome-webstore-upload upload \\
-            --source chrome-extension-test.zip \\
-            --extension-id ${{ secrets.EXTENSION_ID }} \\
+          chrome-webstore-upload upload --source chrome-extension-test.zip
         env:
           EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
