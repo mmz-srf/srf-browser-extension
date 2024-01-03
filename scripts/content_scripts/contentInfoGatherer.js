@@ -8,6 +8,16 @@ const getUrn = () => {
   }
 }
 
+const getUuid = () => {
+  const metaNode = document.querySelector('meta[name="srf:claudia:id"]');
+
+  if (metaNode) {
+    return metaNode.getAttribute('content');
+  } else {
+    return false;
+  }
+}
+
 const getPhase = () => {
   const url = window.location.href;
   if(url.indexOf('www-test.') >= 0) {
@@ -49,6 +59,7 @@ chrome.runtime.onMessage.addListener(
   (request, sender, callback) => {
     if (request.action == "getContentInfo") {
       callback({
+        uuid: getUuid(),
         urn: getUrn(),
         phase: getPhase(),
         portalUrn: getPortalUrn(),
