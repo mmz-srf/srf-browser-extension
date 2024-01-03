@@ -80,7 +80,7 @@ jobs:
 
       - name: Upload step
         run: |
-          chrome-webstore-upload upload --source chrome-extension-test.zip
+          chrome-webstore-upload upload --source chrome-extension-test.zip --auto-publish
         env:
           EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
