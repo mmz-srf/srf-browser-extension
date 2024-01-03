@@ -82,7 +82,7 @@ jobs:
         run: |
           chrome-webstore-upload upload --source chrome-extension-test.zip --auto-publish
         env:
-          EXTENSION_ID: ${{ secrets.EXTENSION_ID }}
+          EXTENSION_ID: goecnpeohpdpecpaiobjeclendfhnlmj
           CLIENT_ID: ${{ secrets.CLIENT_ID }}
           CLIENT_SECRET: ${{ secrets.CLIENT_SECRET }}
           REFRESH_TOKEN: ${{ secrets.REFRESH_TOKEN }}
