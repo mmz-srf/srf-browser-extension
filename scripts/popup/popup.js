@@ -24,7 +24,7 @@ const setupBannerCheckboxListener = () => {
   });
 }
 
-const onContentIdFound = (contentId, phase, portalUrn, businessUnit) => {
+const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
   document.getElementById('contentIdInput').value = contentId;
   
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -71,7 +71,8 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit) => {
       .replace("$NORA_URL", noraUrl)
       .replace("$ADMIN_URL", adminUrl)
       .replace("$PORTAL", portalUrn.split(':').reverse()[0])
-      .replace("$BU", businessUnit);
+      .replace("$BU", businessUnit)
+      .replace("$UUID", uuid);
     element.href = href;
   });
 };
@@ -114,11 +115,11 @@ const getContentInfo = () => {
         return;
       }
 
-      const { urn, phase, portalUrn, hasTicker, businessUnit } = response;
+      const { urn, phase, portalUrn, hasTicker, businessUnit, uuid } = response;
 
       if (urn) {
         const [,, contentClass, contentId] = urn.split(':');
-        onContentIdFound(contentId, phase, portalUrn, businessUnit);
+        onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid);
         onContentClassFound(contentClass);
 
         if (hasTicker) {
