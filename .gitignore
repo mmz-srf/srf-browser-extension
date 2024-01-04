@@ -3,3 +3,6 @@ node_modules/
 oldVersions/
 *.zip
 .idea/
+/.parcel-cache/*
+/dist/*
+
