@@ -26,7 +26,23 @@ a {
 }
 
 ul {
-    padding-left: 24px;
+    padding: 0;
+}
+
+li {
+    list-style: none;
+    padding: 4px 0;
+}
+
+header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 4px;
+}
+
+header h1 {
+    margin: 0;
 }
 
 .container {
@@ -92,4 +108,36 @@ ul {
 .teamSetup__warn {
     display: none;
     color: red;
+}
+
+.link {
+
+}
+
+.link--button {
+  color: #4e4d47;
+  text-decoration: none;
+  position: relative;
+  display: flex;
+  align-items: center;
+  min-width: calc(16px + 24px + 16px);
+  height: 40px;
+  max-width: 100%;
+  padding: 0 16px;
+  margin: 0;
+  letter-spacing: 0.4px;
+  background: #ebebe5;
+  box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.16), 0 0 2px 0 rgba(0, 0, 0, 0.08);
+  border: none;
+  border-radius: 2px;
+  transition:
+    background-color 0.3s ease-in-out,
+    width 0.3s ease,
+    box-shadow 0.3s ease-in-out,
+    filter 0.3s ease-in-out;
+}
+
+.link__icon {
+    width: 40px;
+    margin-left: -8px;
 }

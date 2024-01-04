@@ -6,15 +6,20 @@
 
 <body>
     <div class="container">
+        <header>
+            <img src="/assets/srf.svg" width="56px" />
+            <h1>Toolbox</h1>
+        </header>
+
         <div class="container__row">
             <!-- Info about the current content -->
             <div class="js-contentinfo section">
-                <h2 class="section__title">Content Info</h2>
+                <h2 class="section__title">Content-Info</h2>
 
                 <div class="section__content">
                     <div class="section__row">
                         <input type="checkbox" id="showEnvironment" name="showEnvironment">
-                        <label for="showEnvironment">Show environment banner</label>
+                        <label for="showEnvironment">Banner anzeigen</label>
                     </div>
 
                     <div class="section__row js-contentid-container">
@@ -23,42 +28,96 @@
                     </div>
 
                     <div class="section__row js-no-contentid-found" style="display: none;">
-                        <p>Couldn't find the content ID :(</p>
+                        <p>Unbekannter Content 😭</p>
                     </div>
                 </div>
             </div>
             
             <!-- Links/Actions regarding articles -->
             <div class="js-article-actions section" style="display: none;">
-                <h2 class="section__title">Article</h2>
+                <h2 class="section__title">Artikel</h2>
                 
                 <div class="section__content">
                     <ul class="links">
-                        <li><a class="link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">Open in Edith</a></li>
-                        <li class="js-dev-only"><a class="link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">Open in Edith (Nora Article)</a></li>
-                        <li class="js-ticker-link" style="display: none;">
-                            <a class="link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">Open Ticker in Woody</a>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
+                                <img class="link__icon" src="/assets/Edith.png" />
+                                In Edith bearbeiten
+                            </a>
                         </li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/article/$ID" href="">Access via ID</a></li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/webview" href="">Webview</a></li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/json" href="">JSON</a></li>
-                        <li class="js-dev-only"><a class="link--replace-url" target="_blank" data-href="$ADMIN_URL/redirect/objecttomainnode/$ID" href="">Open in ezAdmin</a></li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
+                                <img class="link__icon" src="/assets/Edith.png" />
+                                In Edith bearbeiten (Nora-Artikel)
+                            </a>
+                        </li>
+                        <li class="js-ticker-link" style="display: none;">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">
+                                <img class="link__icon" src="/assets/Woody.png" />
+                                Open Ticker in Woody
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID" href="">
+                                Access via ID
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/webview" href="">
+                                Webview
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/json" href="">
+                                JSON
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$ADMIN_URL/redirect/objecttomainnode/$ID" href="">
+                                Open in ezAdmin
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
 
             <!-- Links/Actions regarding landingpages -->
             <div class="js-page-actions section" style="display: none;">
-                <h2 class="section__title">Landing Page</h2>
+                <h2 class="section__title">Landingpage</h2>
 
                 <div class="section__content">
                     <ul class="links">
-                        <li><a class="link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">Open in Globi</a></li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID" href="">Access via ID</a></li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/json" href="">JSON View</a></li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">Webview</a></li>
-                        <li><a class="link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">RSS Feed</a></li>
-                        <li class="js-dev-only"><a class="link--replace-url" target="_blank" data-href="$ADMIN_URL/redirect/objecttomainnode/$ID" href="">Open in ezAdmin</a></li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">
+                                <img class="link__icon" src="/assets/Globi.png" />
+                                Im Globi bearbeiten
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID" href="">
+                                Access via ID
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/json" href="">
+                                JSON View
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">
+                                Webview
+                            </a>
+                        </li>
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">
+                                RSS Feed
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$ADMIN_URL/redirect/objecttomainnode/$ID" href="">
+                                Im eZ-Admin öffnen
+                            </a>
+                        </li>
                     </ul>
                 </div>
             </div>
