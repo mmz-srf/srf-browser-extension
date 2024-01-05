@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "SRF Browser Extension",
+  "description": "Little helper for SRF developers and CMS users",
+  "version": "1.0.0",
+  "action": {
+    "default_popup": "popup.html"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://*.srf.ch/*",
+        "*://*.rtr.ch/*",
+        "*://*.srfdigital.ch/*"
+      ],
+      "js" : [
+        "banner.js",
+        "contentInfoGatherer.js",
+        "experiments.js"
+      ],
+      "css" : ["injected.css"],
+      "run_at": "document_end"
+    }
+  ],
+  "options_ui": {
+    "page": "options.html"
+  },
+  "permissions": [
+    "tabs",
+    "storage"
+  ],
+  "icons": {
+    "32": "tool_box32.png",
+    "48": "tool_box48.png",
+    "64": "tool_box64.png",
+    "128": "tool_box128.png"
+  }
+}
