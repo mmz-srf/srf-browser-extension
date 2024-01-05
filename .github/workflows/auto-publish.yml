@@ -17,8 +17,8 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 18
-      - name: Build dist
-        run: npm run build
+      - name: Install & build dist
+        run: npm install && npm run build
       # ..
       - name: Zip
         run: |
