@@ -18,10 +18,9 @@ git clone git@github.com:mmz-srf/srf-browser-extension.git
 cd srf-browser-extension
 
 # https://parceljs.org/recipes/web-extension/
-# Maybe you need to install parcel globally
-npm|yarn install
-npm|yarn build # creates the dist directory
-npm|yarn start # starts the dev server in watch mode
+npm install
+npm run build # creates the dist directory
+npm run start # starts the dev server in watch mode
 ```
 
 Load the unpacked extension by following this [guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) and using the srf-browser-extension directory.
