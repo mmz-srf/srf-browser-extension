@@ -18,7 +18,7 @@ jobs:
       # ..
       - name: Build
         run: |
-          zip -r chrome-extension-test.zip . -x '*.git*'
+          zip -r chrome-extension-test.zip dist -x '*.git*'
 
       # https://github.com/actions/upload-artifact
       - name: artifact
