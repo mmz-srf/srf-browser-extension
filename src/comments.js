@@ -21,10 +21,6 @@ const onCommentsClosed = () => {
   commentsNumberContainer.style.display = 'none';
 };
 
-const onError = () => {
-  commentsContainer.style.display = 'none';
-}
-
 const getCommentInfo = (location, urn) => {
   const [,, contentClass, contentId] = urn.split(':');
   // only get comment info for articles
