@@ -1,34 +1,42 @@
 const getPhaseForBanner = () => {
-  const hostName = window.location.hostname;
+  const { hostname, port, pathname } = window.location;
 
   const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch'];
   const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch'];
   const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch'];
   const localHosts = ['dev.srf.ch', 'dev.rtr.ch', 'pascal.srf.ch', 'pascal.rtr.ch'];
 
-  if (testHosts.includes(hostName)) {
+  if (testHosts.includes(hostname)) {
     return 'TEST';
-  } else if (stageHosts.includes(hostName)) {
+  } else if (stageHosts.includes(hostname)) {
     return 'STAGE';
-  } else if (prodHosts.includes(hostName)) {
+  } else if (prodHosts.includes(hostname)) {
     return 'PROD';
-  } else if (localHosts.includes(hostName)) {
+  } else if (localHosts.includes(hostname)) {
     return 'DEV';
   }
 
   // special cases for PR apps: regex to the rescue
   const pacTestRegex = /^play-web-pr-\d+\.herokuapp\.com$/;
-  if (pacTestRegex.test(hostName)) {
+  if (pacTestRegex.test(hostname)) {
     return 'TEST';
   }
   const noraTestRegex = /^nora-pr-\d+\.herokuapp\.com$/;
-  if (noraTestRegex.test(hostName)) {
+  if (noraTestRegex.test(hostname)) {
     return 'TEST';
   }
 
-  // Nora's dev env has little useful info in the hostName
-  if (hostName === 'localhost' && window.location.port === "6900" && window.location.pathname.startsWith('/ui/')) {
-    return 'DEV';
+  // local dev environments have little useful info in the hostname
+  if (hostname === 'localhost') {
+    // Nora local: http://localhost:6900/ui/portal/*
+    // Play FE local: http://localhost:4000/srf/play/tv
+    // Play BE local: http://localhost:4004/pac/*
+
+    if ((port === "6900" && pathname.startsWith('/ui/')) ||
+    (port === "4000" && pathname.split('/')[2] === 'tv') ||
+    (port === "4004" && pathname.startsWith('/pac/'))) {
+      return 'DEV';
+    }
   }
 
   return '';
@@ -36,6 +44,7 @@ const getPhaseForBanner = () => {
 
 const addBanner = () => {
   const text = getPhaseForBanner();
+
   if (text) {
     const banner = document.createElement("div"); 
     document.body.appendChild(banner); 
