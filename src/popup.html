@@ -1,5 +1,6 @@
 <html>
 <head>
+    <meta charset="UTF-8">
     <title>SRF Browser Extension</title>
     <link href="popup.css" rel="stylesheet" />
 </head>
@@ -9,6 +10,8 @@
         <header>
             <img src="srf.svg" width="56px" />
             <h1>Toolbox</h1>
+            <button class="js-switch-dev-mode-off dev-mode-button" title="Entwickler-Modus ausschalten">🤓</button>
+            <button class="js-switch-dev-mode-on dev-mode-button" title="Entwickler-Modus einschalten" style="display: none;">😎</button>
         </header>
 
         <div class="container__row">
@@ -196,6 +199,7 @@
     </div>
 
     <script src="popup.js"></script>
+    <script src="dev-mode.js"></script>
     <script src="reordering.js"></script>
 </body>
 </html>

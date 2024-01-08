@@ -43,6 +43,16 @@ header {
 
 header h1 {
     margin: 0;
+    flex-grow: 1;
+}
+
+.dev-mode-button {
+	background: none;
+	color: inherit;
+	border: none;
+	font: inherit;
+	cursor: pointer;
+    align-self: stretch;
 }
 
 .container {
@@ -95,19 +105,6 @@ header h1 {
 
 .section__row > *:first-child {
     margin-right: 8px;
-}
-
-.teamSetup--invalid textarea {
-    border: 1px solid red;
-}
-
-.teamSetup--invalid .teamSetup__warn {
-    display: block;
-}
-
-.teamSetup__warn {
-    display: none;
-    color: red;
 }
 
 .link {

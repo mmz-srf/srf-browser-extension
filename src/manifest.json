@@ -22,9 +22,6 @@
       "run_at": "document_end"
     }
   ],
-  "options_ui": {
-    "page": "options.html"
-  },
   "permissions": [
     "tabs",
     "storage"
