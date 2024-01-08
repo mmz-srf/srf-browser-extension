@@ -12,7 +12,8 @@
         "*://*.srf.ch/*",
         "*://*.rtr.ch/*",
         "*://*.srfdigital.ch/*",
-        "*://*.herokuapp.com/*"
+        "*://*.herokuapp.com/*",
+        "*://localhost/*"
       ],
       "js" : [
         "banner.js",
