@@ -7,28 +7,27 @@
 
 <body>
     <div class="container">
-        <header>
+        <header class="l-full-width">
             <img src="srf.svg" width="56px" />
             <h1>Toolbox</h1>
             <button class="js-switch-dev-mode-off dev-mode-button" title="Entwickler-Modus ausschalten">🤓</button>
             <button class="js-switch-dev-mode-on dev-mode-button" title="Entwickler-Modus einschalten" style="display: none;">😎</button>
         </header>
 
-        <div class="container__row">
-            <!-- Info about the current content -->
-            <div class="js-contentinfo section">
-                <h2 class="section__title">Content-Info</h2>
+        <!-- Info about the current content -->
+        <div class="js-contentinfo section">
+            <h2 class="section__title">Content-Info</h2>
 
-                <div class="section__content">
-                    <div class="section__row">
-                        <input type="checkbox" id="showEnvironment" name="showEnvironment">
-                        <label for="showEnvironment">Banner anzeigen</label>
-                    </div>
+            <div class="section__content">
+                <div class="section__row">
+                    <input type="checkbox" id="showEnvironment" name="showEnvironment">
+                    <label for="showEnvironment">Banner mit Umgebungsinfo<br>anzeigen</label>
+                </div>
 
-                    <div class="section__row js-contentid-container">
-                        <label for="contentIdInput">ID:</label>
-                        <input id="contentIdInput" value="">
-                    </div>
+                <div class="section__row js-contentid-container">
+                    <label for="contentIdInput">ID:</label>
+                    <input id="contentIdInput" value="">
+                </div>
 
                     <div class="section__row js-no-contentid-found" style="display: none;">
                         <p>Unbekannter Content 😭</p>
@@ -49,130 +48,127 @@
                 </div>
             </div>
             
-            <!-- Links/Actions regarding articles -->
-            <div class="js-article-actions section" style="display: none;">
-                <h2 class="section__title">Artikel</h2>
-                
-                <div class="section__content">
-                    <ul class="links">
-                        <li>
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
-                                <img class="link__icon" src="Edith.png" />
-                                In Edith bearbeiten
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
-                                <img class="link__icon" src="Edith.png" />
-                                In Edith bearbeiten (☁)
-                            </a>
-                        </li>
-                        <li class="js-ticker-link" style="display: none;">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">
-                                <img class="link__icon link__icon--woody" src="Woody.png" />
-                                Ticker im Woody öffnen
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID" href="">
-                                Zugriff via ID
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/webview" href="">
-                                Webview
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/json" href="">
-                                JSON
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+        <!-- Links/Actions regarding articles -->
+        <div class="js-article-actions section" style="display: none;">
+            <h2 class="section__title">Artikel</h2>
 
-            <!-- Links/Actions regarding landingpages -->
-            <div class="js-page-actions section" style="display: none;">
-                <h2 class="section__title">Landingpage</h2>
-
-                <div class="section__content">
-                    <ul class="links">
-                        <li>
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">
-                                <img class="link__icon" src="Globi.png" />
-                                Im Globi bearbeiten
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID" href="">
-                                Zugriff mit ID
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/json" href="">
-                                JSON View
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">
-                                Webview
-                            </a>
-                        </li>
-                        <li class="js-dev-only">
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">
-                                RSS Feed
-                            </a>
-                        </li>
-                    </ul>
-                </div>
+            <div class="section__content">
+                <ul class="links">
+                    <li>
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
+                            <img class="link__icon" src="Edith.png" />
+                            In Edith bearbeiten
+                        </a>
+                    </li>
+                    <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
+                            <img class="link__icon" src="Edith.png" />
+                            In Edith bearbeiten (☁)
+                        </a>
+                    </li>
+                    <li class="js-ticker-link" style="display: none;">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">
+                            <img class="link__icon link__icon--woody" src="Woody.png" />
+                            Ticker im Woody öffnen
+                        </a>
+                    </li>
+                    <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID" href="">
+                            Zugriff mit ID
+                        </a>
+                    </li>
+                    <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/webview" href="">
+                            Webview
+                        </a>
+                    </li>
+                    <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/json" href="">
+                            JSON
+                        </a>
+                    </li>
+                </ul>
             </div>
         </div>
 
-        <div class="container__row">
-            <!-- Link collection -->
-            <div class="section">
-                <h2 class="section__title">CMS</h2>
+        <!-- Links/Actions regarding landingpages -->
+        <div class="js-page-actions section" style="display: none;">
+            <h2 class="section__title">Landingpage</h2>
 
-                <div class="section__content section__content--horizontal">
+            <div class="section__content">
+                <ul class="links">
+                    <li>
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">
+                            <img class="link__icon" src="Globi.png" />
+                            Im Globi bearbeiten
+                        </a>
+                    </li>
+                    <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID" href="">
+                            Zugriff mit ID
+                        </a>
+                    </li>
+                        <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/json" href="">
+                            JSON View
+                        </a>
+                    </li>
+                        <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">
+                            Webview
+                        </a>
+                    </li>
+                        <li class="js-dev-only">
+                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">
+                            RSS Feed
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Link collection -->
+        <div class="section l-full-width">
+            <h2 class="section__title">Links</h2>
+
+            <div class="section__content">
+                <div class="linklist">
                     <div>
-                        DEV
+                        <h3>DEV</h3>
                         <ul>
                             <li><a target="_blank" href="https://www-test.srf.ch">srf.ch (Test)</a></li>
-                            <li><a target="_blank" href="https://nora.dev.srfdigital.ch/#/portals">Backend</a></li>
+                            <li><a target="_blank" href="https://nora.dev.srfdigital.ch/#/portals">CMS (Nora)</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        INT
+                        <h3>INT</h3>
                         <ul>
                             <li><a target="_blank" href="https://www-stage.srf.ch">srf.ch (Stage)</a></li>
-                            <li><a target="_blank" href="https://nora.int.srfdigital.ch/#/portals">Backend</a></li>
+                            <li><a target="_blank" href="https://nora.int.srfdigital.ch/#/portals">CMS (Nora)</a></li>
                             <li><a target="_blank" href="https://play-web-staging.herokuapp.com/pac/stage/login">PAC (Play)</a></li>
                         </ul>
                     </div>
 
                     <div>
-                        PRD
+                       <h3>PRD</h3>
                         <ul>
                             <li><a target="_blank" href="https://www.srf.ch">srf.ch</a></li>
-                            <li><a target="_blank" href="https://nora.srfdigital.ch/#/portals">Backend</a></li>
+                            <li><a target="_blank" href="https://nora.srfdigital.ch/#/portals">CMS (Nora)</a></li>
                             <li><a target="_blank" href="https://play-web.herokuapp.com/pac/production/login">PAC (Play)</a></li>
                         </ul>
                     </div>
 
                     <div class="js-dev-only">
-                        Local
+                        <h3>Local</h3>
                         <ul>
                             <li><a target="_blank" href="http://www.dev.srf.ch/">Frontend</a></li>
-                            <li><a target="_blank" href="http://localhost:6900/#/portals">Backend</a></li>
+                            <li><a target="_blank" href="http://localhost:6900/#/portals">CMS (Nora)</a></li>
                         </ul>
                     </div>
-                </div>
 
-                <div class="section__content section__content--horizontal js-dev-only">
-                    <div>
-                        DevOps
+                    <div class="js-dev-only">
+                        <h3>DevOps</h3>
                         <ul>
                             <li><a target="_blank" href="https://cms-ci-1.zrh.test.srf.mpc">Jenkins</a></li>
                             <li><a target="_blank" href="https://kibana.zrh.production.srf.mpc/app/kibana#/dashboard/[CMS]-Messages-Dashboard">Kibana (Prod)</a></li>
@@ -180,8 +176,8 @@
                         </ul>
                     </div>
 
-                    <div>
-                        Design
+                    <div class="js-dev-only">
+                        <h3>Design</h3>
                         <ul>
                             <li><a target="_blank" href="https://master--5f5f6d6a2bda13002257d0b1.chromatic.com/">Storybook Master</a></li>
                         </ul>
@@ -190,19 +186,17 @@
             </div>
         </div>
 
-        <!-- Experiment Reordering -->
-        <div class="container__row">
-            <div class="js-reordering section">
-                <h2 class="section__title">Reordering</h2>
+    <!-- Experiment Reordering -->
+        <div class="js-reordering section l-full-width">
+            <h2 class="section__title">Reordering</h2>
 
-                <div class="section__content">
-                    <div class="section__row js-no-reordering-found" style="display: none;">
-                        <p>No Reordering on this page</p>
-                    </div>
+            <div class="section__content">
+                <div class="section__row js-no-reordering-found" style="display: none;">
+                    <p>No Reordering on this page</p>
+                </div>
 
-                    <div class="section__row js-reordering-found" style="display: none;">
-                        <button id="debugReordering">Debug Reordering</button>
-                    </div>
+                <div class="section__row js-reordering-found" style="display: none;">
+                    <button id="debugReordering">Debug Reordering</button>
                 </div>
             </div>
         </div>
