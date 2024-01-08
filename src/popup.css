@@ -188,3 +188,11 @@ header h1 {
     padding: 8px;
     background: var(--section-bg);
 }
+
+.js-dev-only {
+    display: none;
+}
+
+[data-mode^='dev'] .js-dev-only {
+    display: block;
+}
