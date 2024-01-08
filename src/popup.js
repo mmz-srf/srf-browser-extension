@@ -32,6 +32,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
   // $NORA_URL  = https://nora.srfdigital.ch (depending on phase)
   // $ADMIN_URL = https://admin.cms.zrh.production.srf.mpc (depending on phase)
   // $ID        = contentId
+  // $UUID      = uuid
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 

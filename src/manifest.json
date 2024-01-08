@@ -11,7 +11,8 @@
       "matches": [
         "*://*.srf.ch/*",
         "*://*.rtr.ch/*",
-        "*://*.srfdigital.ch/*"
+        "*://*.srfdigital.ch/*",
+        "*://*.herokuapp.com/*"
       ],
       "js" : [
         "banner.js",
