@@ -36,3 +36,4 @@ The extension is automatically published to the Chrome Web Store when a Pull Req
 ### TODO
 * enhance readme
 * redesign
+* support play for the banner
