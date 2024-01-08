@@ -29,24 +29,24 @@
                     <input id="contentIdInput" value="">
                 </div>
 
-                    <div class="section__row js-no-contentid-found" style="display: none;">
-                        <p>Unbekannter Content 😭</p>
-                    </div>
-                </div>
-
-                <div class="section__content js-comments-container">
-                    <div class="section__row">
-                        <label>Kommentare:</label>
-                        <p class="js-comments-open" style="display: none;">Aktiv</p>
-                        <p class="js-comments-closed" style="display: none;">Nicht aktiv</p>
-                    </div>
-
-                    <div class="section__row js-comments-number-container" style="display: none;">
-                        <label>Anzahl:</label>
-                        <p class="js-comments-number">0</p>
-                    </div>
+                <div class="section__row js-no-contentid-found" style="display: none;">
+                    <p>Unbekannter Content 😭</p>
                 </div>
             </div>
+
+            <div class="section__content js-comments-container">
+                <div class="section__row">
+                    <label>Kommentare:</label>
+                    <p class="js-comments-open" style="display: none;">Aktiv</p>
+                    <p class="js-comments-closed" style="display: none;">Nicht aktiv</p>
+                </div>
+
+                <div class="section__row js-comments-number-container" style="display: none;">
+                    <label>Anzahl:</label>
+                    <p class="js-comments-number">0</p>
+                </div>
+            </div>
+        </div>
             
         <!-- Links/Actions regarding articles -->
         <div class="js-article-actions section" style="display: none;">
@@ -113,12 +113,12 @@
                             JSON View
                         </a>
                     </li>
-                        <li class="js-dev-only">
+                    <li class="js-dev-only">
                         <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">
                             Webview
                         </a>
                     </li>
-                        <li class="js-dev-only">
+                    <li class="js-dev-only">
                         <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">
                             RSS Feed
                         </a>
