@@ -1,3 +1,5 @@
+import getCommentInfo from "./comments";
+
 const showEnvironmentCheckbox = document.getElementById("showEnvironment");
 
 // load user setting regarding environment from storage, set checkbox' state
@@ -116,12 +118,14 @@ const getContentInfo = () => {
         return;
       }
 
-      const { urn, phase, portalUrn, hasTicker, businessUnit, uuid } = response;
+      const { urn, phase, portalUrn, hasTicker, businessUnit, uuid, location } = response;
 
       if (urn) {
         const [,, contentClass, contentId] = urn.split(':');
         onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid);
         onContentClassFound(contentClass);
+
+        getCommentInfo(location, urn);
 
         if (hasTicker) {
           onTickerFound();

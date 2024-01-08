@@ -25,6 +25,10 @@ a {
     color: var(--link-color);
 }
 
+p {
+    margin: 0;
+}
+
 ul {
     padding: 0;
     margin: 0;

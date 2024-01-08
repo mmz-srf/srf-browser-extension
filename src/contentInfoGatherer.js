@@ -65,6 +65,7 @@ chrome.runtime.onMessage.addListener(
         portalUrn: getPortalUrn(),
         hasTicker: getTicker(),
         businessUnit: getBusinessUnit(),
+        location: window.location,
       });
     }
   }
