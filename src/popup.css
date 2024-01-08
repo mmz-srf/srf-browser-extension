@@ -1,3 +1,12 @@
+
+@font-face {
+    font-family: 'SRG_SSR_Text_VF';
+    src: url(https://www.srf.ch/var/storage/assets/webpack/fonts/SRGSSRTypeVF_Text_W_Wght.woff2) format("woff2");
+    font-weight: 300 800;
+    font-display: swap;
+    font-display: swap;
+}
+
 :root {
     --container-bg: #fff;
     --section-bg: #ddd;
@@ -13,12 +22,19 @@
     }
 }
 
+* {
+    box-sizing: content-box;
+}
+
 body {
     margin: 0;
     white-space: nowrap;
     background: var(--container-bg);
     color: var(--text-color);
     display: inline-block;
+    font-family: SRG_SSR_Text_VF, sans-serif;
+    font-variation-settings: "wght" 400;
+    font-size: 0.9rem;
 }
 
 a {
@@ -26,20 +42,37 @@ a {
 }
 
 ul {
+    margin: 0;
     padding: 0;
     margin: 0;
 }
 
 li {
     list-style: none;
-    padding: 4px 0;
+    margin: 0 0 4px
+}
+
+h1, h2, h3 {
+    font-variation-settings: "wght" 500;
+    margin: 0;
+}
+
+h1 {
+    font-size: 1.5rem;
+}
+
+h2 {
+    font-size: 1.25rem;
+}
+
+h3 {
+    font-size: 1rem;
 }
 
 header {
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 4px;
 }
 
 header h1 {
@@ -57,35 +90,31 @@ header h1 {
 }
 
 .container {
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: repeat(2, 240px);
+    padding: 8px;
+    gap: 8px 8px;
 }
 
-.container__row {
-    display: flex;
+.l-full-width {
+    grid-column: 1 / -1;
 }
 
 .section {
-    display: flex;
-    flex-direction: column;
     padding: 8px;
     background-color: var(--section-bg);
-    margin: 4px;
     flex: 1 1 auto;
     border-radius: 2px;
 }
 
 .section__title {
-    margin: 0 0 8px 0;
-    flex: 0 0 auto;
+    margin: 0 0 8px;
 }
 
 .section__content {
     display: flex;
     flex-direction: column;
-    flex: 1 1 auto;
+    margin: 0;
     gap: 0 16px;
 }
 
@@ -94,7 +123,7 @@ header h1 {
 }
 
 .section__row {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
     padding: 8px 0;
     display: flex;
     align-items: center;
@@ -108,9 +137,14 @@ header h1 {
     margin-right: 8px;
 }
 
-.link {
 
+.linklist {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+    gap: 16px 8px;
 }
+
+.link {}
 
 .link--button {
   color: #4e4d47;
