@@ -9,9 +9,11 @@
 
 :root {
     --container-bg: #fff;
-    --section-bg: #ddd;
+    --section-bg: rgba(218,218,210,1);
     --text-color: #222;
     --link-color: #222;
+    --link-color-hover: #8d0614;
+    --link-color-active: #6a0b0c;
 }
 @media (prefers-color-scheme: dark) {
     :root {
@@ -19,6 +21,8 @@
         --section-bg: #333;
         --text-color: #fff;
         --link-color: #fff;
+        --link-color-hover: #ff9193;
+        --link-color-active: #ffbbbc;
     }
 }
 
@@ -40,6 +44,14 @@ body {
 a {
     color: var(--link-color);
     text-decoration: none;
+}
+
+a:hover:not(.link--button) {
+    color: var(--link-color-hover);
+}
+
+a:active:not(.link--button) {
+    color: var(--link-color-active);
 }
 
 p {
@@ -103,6 +115,10 @@ header h1 {
 
 .l-full-width {
     grid-column: 1 / -1;
+}
+
+.h-bg-production.h-bg-production {
+    background-color: rgba(201,16,36,.24);
 }
 
 .section {
