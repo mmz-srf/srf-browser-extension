@@ -32,7 +32,6 @@
 
 body {
     margin: 0;
-    white-space: nowrap;
     background: var(--container-bg);
     color: var(--text-color);
     display: inline-block;
@@ -119,7 +118,7 @@ header h1 {
 
 .container {
     display: grid;
-    grid-template-columns: repeat(2, 240px);
+    grid-template-columns: repeat(2, 260px);
     padding: 8px;
     gap: 8px 8px;
 }
@@ -206,7 +205,7 @@ header h1 {
 
 .linklist {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
     gap: 8px;
     margin: -8px;
     background: var(--container-bg);
@@ -215,6 +214,7 @@ header h1 {
 .linklist > div {
     padding: 8px;
     background: var(--section-bg);
+    min-height: 100px;
 }
 
 .js-dev-only,
