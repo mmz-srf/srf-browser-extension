@@ -107,7 +107,7 @@ header h1 {
 
 .icon-button svg {
     opacity: 0.25;
-    margin-right: -8px
+    margin-right: -8px;
 }
 
 @media (prefers-color-scheme: dark) {
