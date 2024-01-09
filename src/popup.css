@@ -106,6 +106,17 @@ header h1 {
     align-self: stretch;
 }
 
+.dev-mode-button svg {
+    opacity: 0.25;
+    margin-right: -8px
+}
+
+@media (prefers-color-scheme: dark) {
+    .dev-mode-button svg {
+        filter: invert();
+    }
+}
+
 .container {
     display: grid;
     grid-template-columns: repeat(2, 240px);
