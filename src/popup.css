@@ -97,7 +97,7 @@ header h1 {
     flex-grow: 1;
 }
 
-.dev-mode-button {
+.icon-button {
 	background: none;
 	color: inherit;
 	border: none;
@@ -106,13 +106,13 @@ header h1 {
     align-self: stretch;
 }
 
-.dev-mode-button svg {
+.icon-button svg {
     opacity: 0.25;
     margin-right: -8px
 }
 
 @media (prefers-color-scheme: dark) {
-    .dev-mode-button svg {
+    .icon-button svg {
         filter: invert();
     }
 }

@@ -14,7 +14,7 @@ const onCommentsOpen = (publishedComments) => {
 const onCommentsClosed = () => {
   commentsOpen.style.display = 'none';
   commentsClosed.style.display = '';
-  commentsNumberContainer.style.display = 'none';
+  commentsNumberContainer.style.display = '';
 };
 
 const getCommentInfo = (location, urn) => {
