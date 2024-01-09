@@ -213,9 +213,11 @@ const renderUI = () => {
   dailyButton.className = 'srf-extension-daily__toggle';
   dailyButton.textContent = '🗓️';
 
-  // open/close daily container when clicking the toggle button
+  // open/close daily container when clicking the toggle button & set jira to fullscreen
   dailyButton.addEventListener('click', () => {
+    const willBeOpen = container.classList.contains('srf-extension-daily--closed');
     container.classList.toggle('srf-extension-daily--closed');
+    setJiraFullscreen(willBeOpen);
   });
 
   // show select when clicking on options button
