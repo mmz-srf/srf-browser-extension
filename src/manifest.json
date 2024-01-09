@@ -21,6 +21,16 @@
       ],
       "css" : ["injected.css"],
       "run_at": "document_end"
+    },
+    {
+      "matches": [
+        "*://jira.srg.beecollaboration.com/*"
+      ],
+      "js" : [
+        "daily.js"
+      ],
+      "css" : ["daily.css"],
+      "run_at": "document_end"
     }
   ],
   "permissions": [

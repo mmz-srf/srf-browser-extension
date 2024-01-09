@@ -1,0 +1,73 @@
+.srf-extension-daily {
+  display: grid;
+  grid-auto-flow: column;
+  gap: 8px;
+  position: fixed;
+  bottom: 2px;
+  right: 2px;
+  padding: 8px;
+  z-index: 100001;
+  background: rgb(218 218 216 / 96%);
+  border-radius: 2px;
+  opacity: 1;
+  transition: opacity .2s;
+}
+
+.srf-extension-daily--closed {
+  opacity: 0.42;
+}
+
+.srf-extension-daily__ui-container {
+  order: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  align-self: stretch;
+  justify-content: space-between;
+}
+
+.srf-extension-daily__toggle {
+  cursor: pointer;
+}
+
+.srf-extension-daily label {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+  font-family: sans-serif;
+  cursor: pointer;
+}
+
+.srf-extension-daily img {
+  margin-bottom: 4px;
+  width: 42px;
+}
+
+.srf-extension-daily input {
+  display: none;
+}
+
+.srf-extension-daily input:checked + label:after {
+  content: '✅';
+  position: absolute;
+  bottom: -6px;
+  left: calc(50% + 8px);
+  z-index: 1;
+}
+
+.srf-extension-daily input:checked + label {
+  color: #b1b1b1;
+  order: 1;
+}
+
+.srf-extension-daily input:checked + label img {
+  filter: grayscale(1);
+}
+
+.srf-extension-daily--closed label,
+.srf-extension-daily--closed input,
+.srf-extension-daily--closed .srf-extension-daily__select,
+.srf-extension-daily--closed .srf-extension-daily__options {
+  display: none;
+}
