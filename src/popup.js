@@ -82,7 +82,6 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
 
 // no content id found - show an error message and hide the input field
 const onContentIdNotFound = () => {
-  document.querySelector(".js-no-contentid-found").style.display = '';
   document.querySelector(".js-contentid-container").style.display = 'none';
 };
 
@@ -92,10 +91,10 @@ const onInfoGatheringFailed = () => {
 
 // depending on the content class, different areas in the popup should be hidden/shown
 const onContentClassFound = contentClass => {
-  if (contentClass === 'landingpage') {
-    document.querySelector(".js-page-actions").style.display = '';
-  } else if (contentClass === 'article') {
-    document.querySelector(".js-article-actions").style.display = '';
+  if (contentClass === "landingpage") {
+    document.body.setAttribute('data-content-class', 'landingpage');
+  } else if (contentClass === "article") {
+    document.body.setAttribute('data-content-class', 'article');
   }
 }
 

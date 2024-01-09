@@ -1,5 +1,3 @@
-const commentsContainer = document.querySelector('.js-comments-container');
-
 const commentsOpen = document.querySelector('.js-comments-open');
 const commentsClosed = document.querySelector('.js-comments-closed');
 
@@ -7,7 +5,6 @@ const commentsNumberContainer = document.querySelector('.js-comments-number-cont
 const commentsNumber = document.querySelector('.js-comments-number');
 
 const onCommentsOpen = (publishedComments) => {
-  commentsContainer.style.display = '';
   commentsOpen.style.display = '';
   commentsClosed.style.display = 'none';
   commentsNumberContainer.style.display = '';
@@ -15,7 +12,6 @@ const onCommentsOpen = (publishedComments) => {
 };
 
 const onCommentsClosed = () => {
-  commentsContainer.style.display = '';
   commentsOpen.style.display = 'none';
   commentsClosed.style.display = '';
   commentsNumberContainer.style.display = 'none';
