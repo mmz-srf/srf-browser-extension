@@ -1,9 +1,9 @@
 const getPhaseForBanner = () => {
   const { hostname, port, pathname } = window.location;
 
-  const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch'];
-  const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch'];
-  const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch'];
+  const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch', 'srf-comments-dev.herokuapp.com'];
+  const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch', 'srf-comments-int.herokuapp.com'];
+  const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch', 'comments.srfdigital.ch'];
   const localHosts = ['dev.srf.ch', 'dev.rtr.ch', 'pascal.srf.ch', 'pascal.rtr.ch'];
 
   if (testHosts.includes(hostname)) {
@@ -49,7 +49,7 @@ const addBanner = () => {
     const banner = document.createElement("div"); 
     document.body.appendChild(banner); 
     banner.innerText = text;
-    banner.className = 'srf-tools__banner';
+    banner.className = 'srf-tools__banner srf-tools__banner--' + text.toLowerCase();
   }
 };
 

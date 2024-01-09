@@ -6,9 +6,21 @@
   transform: rotate( 45deg);
   color: white;
   padding: 4px 69px;
-  background-color: red;
+  background-color: grey;
   transform-origin: center;
   pointer-events: none;
   opacity: .7;
   font-size: 12px;
+}
+
+.srf-tools__banner.srf-tools__banner--test {
+  background-color: green;
+}
+
+.srf-tools__banner.srf-tools__banner--stage {
+  background-color: blue;
+}
+
+.srf-tools__banner.srf-tools__banner--prod {
+  background-color: red;
 }
