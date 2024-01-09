@@ -20,121 +20,134 @@
         </header>
 
         <!-- Info about the current content -->
-        <div class="js-contentinfo section">
-            <h2 class="section__title">Content-Info</h2>
+        <div class="section">
+            <div class="js-contentinfo">
+                <h2 class="section__title">Content-Info</h2>
 
-            <div class="section__content">
-                <div class="section__row">
-                    <input type="checkbox" id="showEnvironment" name="showEnvironment">
-                    <label for="showEnvironment">Banner mit Umgebungsinfo<br>anzeigen</label>
-                </div>
+                <div class="section__content">
+                    <div class="section__row">
+                        <input type="checkbox" id="showEnvironment" name="showEnvironment">
+                        <label for="showEnvironment">Banner mit Umgebungsinfo anzeigen</label>
+                    </div>
 
-                <div class="section__row js-contentid-container">
-                    <label for="contentIdInput">ID:</label>
-                    <input id="contentIdInput" value="">
+                    <div class="section__row js-contentid-container">
+                        <label for="contentIdInput">ID:</label>
+                        <input id="contentIdInput" value="">
                     <button class="js-copy-content-id icon-button">
                         <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/></svg>
                     </button>
                 </div>
-            </div>
-
-            <div class="section__content js-article-actions">
-                <div class="section__row">
-                    <label>Kommentare:</label>
-                    <p class="js-comments-open" style="display: none;">Aktiv</p>
-                    <p class="js-comments-closed" style="display: none;">Nicht aktiv</p>
                 </div>
 
-                <div class="section__row js-comments-number-container" style="display: none;">
-                    <label>Anzahl:</label>
-                    <p class="js-comments-number">0</p>
+                <div class="section__content js-article-actions">
+                    <div class="section__row">
+                        <label>Kommentare:</label>
+                        <p class="js-comments-open" style="display: none;">Aktiv</p>
+                        <p class="js-comments-closed" style="display: none;">Nicht aktiv</p>
+                    </div>
+
+                    <div class="section__row js-comments-number-container" style="display: none;">
+                        <label>Anzahl:</label>
+                        <p class="js-comments-number">0</p>
+                    </div>
                 </div>
             </div>
         </div>
-            
-        <!-- Links/Actions regarding articles -->
-        <div class="section js-article-actions">
-            <h2 class="section__title">Artikel</h2>
 
-            <div class="section__content">
-                <ul class="links">
-                    <li>
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
-                            <img class="link__icon" src="Edith.png" />
-                            In Edith bearbeiten
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
-                            <img class="link__icon" src="Edith.png" />
-                            In Edith bearbeiten (☁)
-                        </a>
-                    </li>
-                    <li class="js-ticker-link" style="display: none;">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">
-                            <img class="link__icon link__icon--woody" src="Woody.png" />
-                            Ticker im Woody öffnen
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID" href="">
-                            Zugriff mit ID
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/webview" href="">
-                            Webview
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/json" href="">
-                            JSON
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div class="section">
+            <!-- Links/Actions regarding articles -->
+            <div class="js-article-actions">
+                <h2 class="section__title">Artikel</h2>
 
-        <!-- Links/Actions regarding landingpages -->
-        <div class="js-page-actions section">
-            <h2 class="section__title">Landingpage</h2>
-
-            <div class="section__content">
-                <ul class="links">
-                    <li>
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">
-                            <img class="link__icon" src="Globi.png" />
-                            Im Globi bearbeiten
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID" href="">
-                            Zugriff mit ID
-                        </a>
-                    </li>
+                <div class="section__content">
+                    <ul class="links">
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
+                                <img class="link__icon" src="Edith.png" />
+                                In Edith bearbeiten
+                            </a>
+                        </li>
                         <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/json" href="">
-                            JSON View
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">
-                            Webview
-                        </a>
-                    </li>
-                    <li class="js-dev-only">
-                        <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">
-                            RSS Feed
-                        </a>
-                    </li>
-                </ul>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
+                                <img class="link__icon" src="Edith.png" />
+                                In Edith bearbeiten (☁)
+                            </a>
+                        </li>
+                        <li class="js-ticker-link" style="display: none;">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">
+                                <img class="link__icon link__icon--woody" src="Woody.png" />
+                                Ticker im Woody öffnen
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID" href="">
+                                Zugriff mit ID
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/webview" href="">
+                                Webview
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/article/$ID/json" href="">
+                                JSON
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <!-- Links/Actions regarding landingpages -->
+            <div class="js-page-actions">
+                <h2 class="section__title">Landingpage</h2>
+
+                <div class="section__content">
+                    <ul class="links">
+                        <li>
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">
+                                <img class="link__icon" src="Globi.png" />
+                                Im Globi bearbeiten
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID" href="">
+                                Zugriff mit ID
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/json" href="">
+                                JSON View
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/landingpage/$ID/webview" href="">
+                                Webview
+                            </a>
+                        </li>
+                        <li class="js-dev-only">
+                            <a class="link link--button link--replace-url" target="_blank" data-href="$FE_URL/bnf/rss/$ID" href="">
+                                RSS Feed
+                            </a>
+                        </li>
+                    </ul>
+                </div>
             </div>
         </div>
+
+
 
         <!-- Link collection -->
         <div class="section l-full-width">
             <div class="section__content">
                 <div class="linklist">
+                    <div class="js-dev-only">
+                        <h3>Local</h3>
+                        <ul>
+                            <li><a target="_blank" href="http://www.dev.srf.ch/">Frontend</a></li>
+                            <li><a target="_blank" href="http://localhost:6900/#/portals">CMS (Nora)</a></li>
+                        </ul>
+                    </div>
+
                     <div>
                         <h3>DEV</h3>
                         <ul>
@@ -155,20 +168,12 @@
                     </div>
 
                     <div class="h-bg-production">
-                       <h3>Production</h3>
+                        <h3>Production</h3>
                         <ul>
                             <li><a target="_blank" href="https://www.srf.ch">srf.ch</a></li>
                             <li><a target="_blank" href="https://nora.srfdigital.ch/#/portals">CMS (Nora)</a></li>
                             <li><a target="_blank" href="https://play-web.herokuapp.com/pac/production/login">PAC (Play)</a></li>
                             <li><a target="_blank" href="https://comments.srfdigital.ch">Tweety</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="js-dev-only">
-                        <h3>Local</h3>
-                        <ul>
-                            <li><a target="_blank" href="http://www.dev.srf.ch/">Frontend</a></li>
-                            <li><a target="_blank" href="http://localhost:6900/#/portals">CMS (Nora)</a></li>
                         </ul>
                     </div>
 
@@ -187,6 +192,13 @@
                             <li><a target="_blank" href="https://master--5f5f6d6a2bda13002257d0b1.chromatic.com/">Storybook Master</a></li>
                         </ul>
                     </div>
+                    <div>
+                        <h3>Varia</h3>
+                        <ul>
+                            <li><a target="_blank" href="https://srf.ch/qa/participate">Qualimelder für Artikel aktivieren</a></li>
+                        </ul>
+                    </div>
+                    <div class="js-dev-only"></div>
                 </div>
             </div>
         </div>
