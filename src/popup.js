@@ -1,6 +1,8 @@
 import getCommentInfo from "./comments";
 
 const showEnvironmentCheckbox = document.getElementById("showEnvironment");
+const contentIdInput = document.getElementById('contentIdInput');
+const copyContentIdButton = document.querySelector('.js-copy-content-id');
 
 // load user setting regarding environment from storage, set checkbox' state
 const setBannerStateFromStorage = () => {
@@ -27,7 +29,7 @@ const setupBannerCheckboxListener = () => {
 }
 
 const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
-  document.getElementById('contentIdInput').value = contentId;
+  contentIdInput.value = contentId;
   
   // idea: loop over all links, replace various placeholders with the correct data:
   // $FE_URL    = https://www.srf.ch (depending on phase)
@@ -137,12 +139,20 @@ const getContentInfo = () => {
   });
 };
 
+const setupContentIdCopyListener = () => {
+  copyContentIdButton.addEventListener('click', () => {
+    navigator.clipboard.writeText(contentIdInput.value);
+  });
+};
+
+
 // what to do when the extension is opened
 const onLoad = () => {
   getContentInfo();
 
   setBannerStateFromStorage();
   setupBannerCheckboxListener();
+  setupContentIdCopyListener();
 };
 
 onLoad();

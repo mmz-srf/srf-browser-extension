@@ -4,17 +4,18 @@ const commentsClosed = document.querySelector('.js-comments-closed');
 const commentsNumberContainer = document.querySelector('.js-comments-number-container');
 const commentsNumber = document.querySelector('.js-comments-number');
 
-const onCommentsOpen = (publishedComments) => {
+const onCommentsOpen = (publishedComments = 0) => {
   commentsOpen.style.display = '';
   commentsClosed.style.display = 'none';
   commentsNumberContainer.style.display = '';
-  commentsNumber.innerHTML = publishedComments
+  commentsNumber.textContent = publishedComments
 };
 
-const onCommentsClosed = () => {
+const onCommentsClosed = (publishedComments = 0) => {
   commentsOpen.style.display = 'none';
   commentsClosed.style.display = '';
-  commentsNumberContainer.style.display = 'none';
+  commentsNumber.textContent= publishedComments
+  commentsNumberContainer.style.display = '';
 };
 
 const getCommentInfo = (location, urn) => {
@@ -27,13 +28,15 @@ const getCommentInfo = (location, urn) => {
   fetch(`${location.origin}/commentsapi/v1/public/srf/threads/${urn}/stats`)
     .then((response) => response.json())
     .then((json) => {
+      console.log(json);
       const isOpen = json?.threadState === 'open';
       const publishedComments = json?.commentsPublished ?? 0;
+      console.log(publishedComments);
 
       if (isOpen) {
         onCommentsOpen(publishedComments);
       } else {
-        onCommentsClosed();
+        onCommentsClosed(publishedComments);
       }
     }).catch(() => {
       onCommentsClosed();

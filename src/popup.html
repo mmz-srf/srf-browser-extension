@@ -12,10 +12,10 @@
             <img src="srf.svg" width="56px" />
             <h1>Toolbox</h1>
             <!-- Icons: Material Icons, Apache License Version 2.0, https://github.com/google/material-design-icons/blob/master/LICENSE -->
-            <button class="js-switch-dev-mode-off dev-mode-button" title="Entwickler-Modus ausschalten">
+            <button class="js-switch-dev-mode-off icon-button" title="Entwickler-Modus ausschalten">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M200-120q-51 0-72.5-45.5T138-250l222-270v-240h-40q-17 0-28.5-11.5T280-800q0-17 11.5-28.5T320-840h320q17 0 28.5 11.5T680-800q0 17-11.5 28.5T640-760h-40v240l222 270q32 39 10.5 84.5T760-120H200Zm0-80h560L520-492v-268h-80v268L200-200Zm280-280Z"/></svg>
             </button>
-            <button class="js-switch-dev-mode-on dev-mode-button" title="Entwickler-Modus einschalten" style="display: none;">
+            <button class="js-switch-dev-mode-on icon-button" title="Entwickler-Modus einschalten" style="display: none;">
                 <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="m600-473-80-80v-207h-80v127l-80-80v-47h-40q-17 0-28.5-11.5T280-800q0-17 11.5-28.5T320-840h320q17 0 28.5 11.5T680-800q0 17-11.5 28.5T640-760h-40v287ZM200-200h448L402-446 200-200ZM792-56l-64-64H200q-51 0-72.5-45.5T138-250l208-252L56-792l56-56 736 736-56 56ZM402-446Zm78-147Z"/></svg>
             </button>
         </header>
@@ -34,7 +34,10 @@
                     <div class="section__row js-contentid-container">
                         <label for="contentIdInput">ID:</label>
                         <input id="contentIdInput" value="">
-                    </div>
+                    <button class="js-copy-content-id icon-button">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 -960 960 960" width="24"><path d="M360-240q-33 0-56.5-23.5T280-320v-480q0-33 23.5-56.5T360-880h360q33 0 56.5 23.5T800-800v480q0 33-23.5 56.5T720-240H360Zm0-80h360v-480H360v480ZM200-80q-33 0-56.5-23.5T120-160v-560h80v560h440v80H200Zm160-240v-480 480Z"/></svg>
+                    </button>
+                </div>
                 </div>
 
                 <div class="section__content js-article-actions">
@@ -61,19 +64,19 @@
                     <ul class="links">
                         <li>
                             <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
-                                <img class="link__icon" src="Edith.png" />
+                                <img class="link__icon" src="Edith.svg" />
                                 In Edith bearbeiten
                             </a>
                         </li>
                         <li class="js-dev-only">
                             <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
-                                <img class="link__icon" src="Edith.png" />
+                                <img class="link__icon" src="Edith.svg" />
                                 In Edith bearbeiten (☁)
                             </a>
                         </li>
                         <li class="js-ticker-link" style="display: none;">
                             <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/ticker/urn:$BU:article:$ID" href="">
-                                <img class="link__icon link__icon--woody" src="Woody.png" />
+                                <img class="link__icon" src="Woody.svg" />
                                 Ticker im Woody öffnen
                             </a>
                         </li>
@@ -103,7 +106,7 @@
                     <ul class="links">
                         <li>
                             <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/pages/$ID" href="">
-                                <img class="link__icon" src="Globi.png" />
+                                <img class="link__icon" src="Globi.svg" />
                                 Im Globi bearbeiten
                             </a>
                         </li>
