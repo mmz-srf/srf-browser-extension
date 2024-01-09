@@ -217,10 +217,20 @@ header h1 {
     background: var(--section-bg);
 }
 
-.js-dev-only {
+.js-dev-only,
+.js-page-actions,
+.js-article-actions {
     display: none;
 }
 
 [data-mode^='dev'] .js-dev-only {
+    display: block;
+}
+
+[data-content-class^='landingpage'] .js-page-actions {
+    display: block;
+}
+
+[data-content-class^='article'] .js-article-actions {
     display: block;
 }

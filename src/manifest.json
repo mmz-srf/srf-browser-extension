@@ -17,8 +17,7 @@
       ],
       "js" : [
         "banner.js",
-        "contentInfoGatherer.js",
-        "experiments.js"
+        "contentInfoGatherer.js"
       ],
       "css" : ["injected.css"],
       "run_at": "document_end"

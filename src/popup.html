@@ -39,7 +39,7 @@
                 </div>
             </div>
 
-            <div class="section__content js-comments-container">
+            <div class="section__content js-article-actions">
                 <div class="section__row">
                     <label>Kommentare:</label>
                     <p class="js-comments-open" style="display: none;">Aktiv</p>
@@ -54,7 +54,7 @@
         </div>
             
         <!-- Links/Actions regarding articles -->
-        <div class="js-article-actions section" style="display: none;">
+        <div class="section js-article-actions">
             <h2 class="section__title">Artikel</h2>
 
             <div class="section__content">
@@ -97,7 +97,7 @@
         </div>
 
         <!-- Links/Actions regarding landingpages -->
-        <div class="js-page-actions section" style="display: none;">
+        <div class="js-page-actions section">
             <h2 class="section__title">Landingpage</h2>
 
             <div class="section__content">
@@ -191,26 +191,10 @@
                 </div>
             </div>
         </div>
-
-        <!-- Experiment Reordering -->
-        <div class="js-dev-only section l-full-width">
-            <h2 class="section__title">Sortier-Experiment</h2>
-
-            <div class="section__content">
-                <div class="section__row js-no-reordering-found" style="display: none;">
-                    <p>Hier laufen keine Experimente</p>
-                </div>
-
-                <div class="section__row js-reordering-found" style="display: none;">
-                    <button id="debugReordering">Sortierungen anzeigen</button>
-                </div>
-            </div>
-        </div>
     </div>
 
     <script src="comments.js" type="module"></script>
     <script src="popup.js" type="module"></script>
     <script src="dev-mode.js"></script>
-    <script src="reordering.js"></script>
 </body>
 </html>
