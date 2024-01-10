@@ -28,7 +28,6 @@ const getCommentInfo = (location, urn) => {
   fetch(`${location.origin}/commentsapi/v1/public/srf/threads/${urn}/stats`)
     .then((response) => response.json())
     .then((json) => {
-      console.log(json);
       const isOpen = json?.threadState === 'open';
       const publishedComments = json?.commentsPublished ?? 0;
       console.log(publishedComments);
