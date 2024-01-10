@@ -132,10 +132,13 @@ header h1 {
 }
 
 .section {
-    padding: 8px;
     background-color: var(--section-bg);
     flex: 1 1 auto;
     border-radius: 2px;
+}
+
+.section__wrapper {
+    padding: 8px;
 }
 
 .section__title {

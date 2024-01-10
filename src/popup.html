@@ -22,7 +22,7 @@
 
         <!-- Info about the current content -->
         <div class="section">
-            <div class="js-contentinfo">
+            <div class="section__wrapper js-contentinfo">
                 <h2 class="section__title">Content-Info</h2>
 
                 <div class="section__content">
@@ -57,7 +57,7 @@
 
         <div class="section">
             <!-- Links/Actions regarding articles -->
-            <div class="js-article-actions">
+            <div class="section__wrapper js-article-actions">
                 <h2 class="section__title">Artikel</h2>
 
                 <div class="section__content">
@@ -99,7 +99,7 @@
                 </div>
             </div>
             <!-- Links/Actions regarding landingpages -->
-            <div class="js-page-actions">
+            <div class="section__wrapper js-page-actions">
                 <h2 class="section__title">Landingpage</h2>
 
                 <div class="section__content">
@@ -139,67 +139,69 @@
 
         <!-- Link collection -->
         <div class="section l-full-width">
-            <div class="section__content">
-                <div class="linklist">
-                    <div class="js-dev-only">
-                        <h3>Local</h3>
-                        <ul>
-                            <li><a target="_blank" href="http://www.dev.srf.ch/">Frontend</a></li>
-                            <li><a target="_blank" href="http://localhost:6900/#/portals">CMS (Nora)</a></li>
-                        </ul>
-                    </div>
+            <div class="section__wrapper">
+                <div class="section__content">
+                    <div class="linklist">
+                        <div class="js-dev-only">
+                            <h3>Local</h3>
+                            <ul>
+                                <li><a target="_blank" href="http://www.dev.srf.ch/">Frontend</a></li>
+                                <li><a target="_blank" href="http://localhost:6900/#/portals">CMS (Nora)</a></li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h3>DEV</h3>
-                        <ul>
-                            <li><a target="_blank" href="https://www-test.srf.ch">srf.ch (Test)</a></li>
-                            <li><a target="_blank" href="https://nora.dev.srfdigital.ch/#/portals">CMS (Nora)</a></li>
-                            <li><a target="_blank" href="https://srf-comments-dev.herokuapp.com">Tweety</a></li>
-                        </ul>
-                    </div>
+                        <div>
+                            <h3>DEV</h3>
+                            <ul>
+                                <li><a target="_blank" href="https://www-test.srf.ch">srf.ch (Test)</a></li>
+                                <li><a target="_blank" href="https://nora.dev.srfdigital.ch/#/portals">CMS (Nora)</a></li>
+                                <li><a target="_blank" href="https://srf-comments-dev.herokuapp.com">Tweety</a></li>
+                            </ul>
+                        </div>
 
-                    <div>
-                        <h3>INT</h3>
-                        <ul>
-                            <li><a target="_blank" href="https://www-stage.srf.ch">srf.ch (Stage)</a></li>
-                            <li><a target="_blank" href="https://nora.int.srfdigital.ch/#/portals">CMS (Nora)</a></li>
-                            <li><a target="_blank" href="https://play-web-staging.herokuapp.com/pac/stage/login">PAC (Play)</a></li>
-                            <li><a target="_blank" href="https://srf-comments-int.herokuapp.com">Tweety</a></li>
-                        </ul>
-                    </div>
+                        <div>
+                            <h3>INT</h3>
+                            <ul>
+                                <li><a target="_blank" href="https://www-stage.srf.ch">srf.ch (Stage)</a></li>
+                                <li><a target="_blank" href="https://nora.int.srfdigital.ch/#/portals">CMS (Nora)</a></li>
+                                <li><a target="_blank" href="https://play-web-staging.herokuapp.com/pac/stage/login">PAC (Play)</a></li>
+                                <li><a target="_blank" href="https://srf-comments-int.herokuapp.com">Tweety</a></li>
+                            </ul>
+                        </div>
 
-                    <div class="h-bg-production">
-                        <h3>Production</h3>
-                        <ul>
-                            <li><a target="_blank" href="https://www.srf.ch">srf.ch</a></li>
-                            <li><a target="_blank" href="https://nora.srfdigital.ch/#/portals">CMS (Nora)</a></li>
-                            <li><a target="_blank" href="https://play-web.herokuapp.com/pac/production/login">PAC (Play)</a></li>
-                            <li><a target="_blank" href="https://comments.srfdigital.ch">Tweety</a></li>
-                        </ul>
-                    </div>
+                        <div class="h-bg-production">
+                            <h3>Production</h3>
+                            <ul>
+                                <li><a target="_blank" href="https://www.srf.ch">srf.ch</a></li>
+                                <li><a target="_blank" href="https://nora.srfdigital.ch/#/portals">CMS (Nora)</a></li>
+                                <li><a target="_blank" href="https://play-web.herokuapp.com/pac/production/login">PAC (Play)</a></li>
+                                <li><a target="_blank" href="https://comments.srfdigital.ch">Tweety</a></li>
+                            </ul>
+                        </div>
 
-                    <div class="js-dev-only">
-                        <h3>DevOps</h3>
-                        <ul>
-                            <li><a target="_blank" href="https://cms-ci-1.zrh.test.srf.mpc">Jenkins</a></li>
-                            <li><a target="_blank" href="https://kibana.zrh.production.srf.mpc/app/kibana#/dashboard/[CMS]-Messages-Dashboard">Kibana (Prod)</a></li>
-                            <li><a target="_blank" href="https://monitor.production.admin.srf.ch/cgi-bin/icinga/status.cgi?style=detail&hostgroup=team-1&allunhandledproblems">Icinga Team 1</a></li>
-                        </ul>
-                    </div>
+                        <div class="js-dev-only">
+                            <h3>DevOps</h3>
+                            <ul>
+                                <li><a target="_blank" href="https://cms-ci-1.zrh.test.srf.mpc">Jenkins</a></li>
+                                <li><a target="_blank" href="https://kibana.zrh.production.srf.mpc/app/kibana#/dashboard/[CMS]-Messages-Dashboard">Kibana (Prod)</a></li>
+                                <li><a target="_blank" href="https://monitor.production.admin.srf.ch/cgi-bin/icinga/status.cgi?style=detail&hostgroup=team-1&allunhandledproblems">Icinga Team 1</a></li>
+                            </ul>
+                        </div>
 
-                    <div class="js-dev-only">
-                        <h3>Design</h3>
-                        <ul>
-                            <li><a target="_blank" href="https://master--5f5f6d6a2bda13002257d0b1.chromatic.com/">Storybook Master</a></li>
-                        </ul>
+                        <div class="js-dev-only">
+                            <h3>Design</h3>
+                            <ul>
+                                <li><a target="_blank" href="https://master--5f5f6d6a2bda13002257d0b1.chromatic.com/">Storybook Master</a></li>
+                            </ul>
+                        </div>
+                        <div>
+                            <h3>Varia</h3>
+                            <ul>
+                                <li><a target="_blank" href="https://srf.ch/qa/participate">Qualimelder für Artikel aktivieren</a></li>
+                            </ul>
+                        </div>
+                        <div class="js-dev-only"></div>
                     </div>
-                    <div>
-                        <h3>Varia</h3>
-                        <ul>
-                            <li><a target="_blank" href="https://srf.ch/qa/participate">Qualimelder für Artikel aktivieren</a></li>
-                        </ul>
-                    </div>
-                    <div class="js-dev-only"></div>
                 </div>
             </div>
         </div>
