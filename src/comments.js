@@ -30,7 +30,6 @@ const getCommentInfo = (location, urn) => {
     .then((json) => {
       const isOpen = json?.threadState === 'open';
       const publishedComments = json?.commentsPublished ?? 0;
-      console.log(publishedComments);
 
       if (isOpen) {
         onCommentsOpen(publishedComments);
