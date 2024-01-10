@@ -96,11 +96,11 @@ header h1 {
 }
 
 .icon-button {
-	background: none;
-	color: inherit;
-	border: none;
-	font: inherit;
-	cursor: pointer;
+    background: none;
+    color: inherit;
+    border: none;
+    font: inherit;
+    cursor: pointer;
     align-self: stretch;
 }
 
