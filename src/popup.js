@@ -1,4 +1,8 @@
+import getCommentInfo from "./comments";
+
 const showEnvironmentCheckbox = document.getElementById("showEnvironment");
+const contentIdInput = document.getElementById('contentIdInput');
+const copyContentIdButton = document.querySelector('.js-copy-content-id');
 
 // load user setting regarding environment from storage, set checkbox' state
 const setBannerStateFromStorage = () => {
@@ -25,13 +29,14 @@ const setupBannerCheckboxListener = () => {
 }
 
 const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
-  document.getElementById('contentIdInput').value = contentId;
+  contentIdInput.value = contentId;
   
   // idea: loop over all links, replace various placeholders with the correct data:
   // $FE_URL    = https://www.srf.ch (depending on phase)
   // $NORA_URL  = https://nora.srfdigital.ch (depending on phase)
   // $ADMIN_URL = https://admin.cms.zrh.production.srf.mpc (depending on phase)
   // $ID        = contentId
+  // $UUID      = uuid
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
@@ -79,7 +84,6 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
 
 // no content id found - show an error message and hide the input field
 const onContentIdNotFound = () => {
-  document.querySelector(".js-no-contentid-found").style.display = '';
   document.querySelector(".js-contentid-container").style.display = 'none';
 };
 
@@ -89,10 +93,10 @@ const onInfoGatheringFailed = () => {
 
 // depending on the content class, different areas in the popup should be hidden/shown
 const onContentClassFound = contentClass => {
-  if (contentClass === 'landingpage') {
-    document.querySelector(".js-page-actions").style.display = '';
-  } else if (contentClass === 'article') {
-    document.querySelector(".js-article-actions").style.display = '';
+  if (contentClass === "landingpage") {
+    document.body.setAttribute('data-content-class', 'landingpage');
+  } else if (contentClass === "article") {
+    document.body.setAttribute('data-content-class', 'article');
   }
 }
 
@@ -115,12 +119,14 @@ const getContentInfo = () => {
         return;
       }
 
-      const { urn, phase, portalUrn, hasTicker, businessUnit, uuid } = response;
+      const { urn, phase, portalUrn, hasTicker, businessUnit, uuid, location } = response;
 
       if (urn) {
         const [,, contentClass, contentId] = urn.split(':');
         onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid);
         onContentClassFound(contentClass);
+
+        getCommentInfo(location, urn);
 
         if (hasTicker) {
           onTickerFound();
@@ -133,13 +139,12 @@ const getContentInfo = () => {
   });
 };
 
-const showOrHideDevStuff = () => {
-  chrome.storage.sync.get("showDeveloperStuff", ({ showDeveloperStuff }) => {
-    document
-      .querySelectorAll(".js-dev-only")
-      .forEach(node => node.style.display = showDeveloperStuff ? '' : 'none');
+const setupContentIdCopyListener = () => {
+  copyContentIdButton.addEventListener('click', () => {
+    navigator.clipboard.writeText(contentIdInput.value);
   });
 };
+
 
 // what to do when the extension is opened
 const onLoad = () => {
@@ -147,8 +152,7 @@ const onLoad = () => {
 
   setBannerStateFromStorage();
   setupBannerCheckboxListener();
-
-  showOrHideDevStuff();
+  setupContentIdCopyListener();
 };
 
 onLoad();

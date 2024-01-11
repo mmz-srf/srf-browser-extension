@@ -23,7 +23,7 @@ npm run build # creates the dist directory
 npm run start # starts the dev server in watch mode
 ```
 
-Load the unpacked extension by following this [guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) and using the srf-browser-extension directory.
+Load the unpacked extension by following this [guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) and using the `dist` directory.
 
 "unpacked" means that the extension is now loaded from the web store but that it is loaded as-is from your local directory.
 
