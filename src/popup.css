@@ -270,6 +270,44 @@ header h1 {
     width: 1rem;
 }
 
-.content-id__icon svg * {
+.content-id__icon * {
     stroke: var(--text-color);
+}
+
+.show-environment {
+    position: relative;
+}
+
+.show-environment__input {
+    display: none;
+}
+
+.show-environment__icon {
+    position: absolute;
+    pointer-events: none;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.show-environment__icon * {
+    fill: var(--text-color);
+}
+
+.show-environment__icon ellipse {
+    opacity: 0.5;
+    transition: opacity 0.2s;
+}
+
+.show-environment__label {
+    cursor: pointer;
+    padding-left: 30px;
+    display: block;
+}
+
+.show-environment__input:checked + .show-environment__icon {
+    transform: translateY(-50%) rotate(180deg);
+}
+
+.show-environment__input:checked + .show-environment__icon ellipse {
+    opacity: 1;
 }
