@@ -8,7 +8,7 @@ Browser extension to make working with SRF/RTR content easier:
 * supports dark theme
 * developer/experimental view with additional links and actions (e.g. webview, JSON view)
 
-:exclamation: Currently, only Chrome is supported :exclamation
+:exclamation: Currently, only Chrome is supported :exclamation:
 
 
 ### Local Setup (WIP)
