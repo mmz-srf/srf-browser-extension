@@ -17,8 +17,7 @@
       ],
       "js" : [
         "banner.js",
-        "contentInfoGatherer.js",
-        "contextMenuController.js"
+        "contentInfoGatherer.js"
       ],
       "css" : ["injected.css"],
       "run_at": "document_end"
