@@ -13,6 +13,7 @@
     --link-color: #222;
     --link-color-hover: #8d0614;
     --link-color-active: #6a0b0c;
+    --input-bg: #fff;
 }
 @media (prefers-color-scheme: dark) {
     :root {
@@ -22,6 +23,7 @@
         --link-color: #fff;
         --link-color-hover: #ff9193;
         --link-color-active: #ffbbbc;
+        --input-bg: #383732;
     }
 }
 
@@ -230,4 +232,44 @@ header h1 {
 
 [data-content-class^='article'] .js-article-actions {
     display: block;
+}
+
+.content-id {
+    position: relative;
+    cursor: pointer;
+}
+
+.content-id__label {
+    position: absolute;
+    left: 4px;
+    font-family: SRG_SSR_Text_VF;
+    font-size: 0.8rem;
+    font-style: normal;
+    font-weight: 300;
+    letter-spacing: 0.4px;
+    color: var(--text-color);
+    top: 50%;
+    margin-top: -0.4rem;
+    line-height: 0.8rem;
+}
+
+.content-id__input {
+    background-color: var(--input-bg);
+    border: 1px solid var(--text-color);
+    border-radius: 2px;
+    padding: 8px 24px 8px 24px;
+    font-size: 0.8rem;
+    color: var(--text-color);
+    outline: none;
+}
+
+.content-id__icon {
+    position: absolute;
+    right: 4px;
+    top: 7px;
+    width: 1rem;
+}
+
+.content-id__icon svg * {
+    stroke: var(--text-color);
 }
