@@ -35,8 +35,12 @@
   ],
   "permissions": [
     "tabs",
-    "storage"
+    "storage",
+    "contextMenus"
   ],
+  "background": {
+    "service_worker": "background.js"
+  },
   "icons": {
     "32": "srf_toolbox_32.png",
     "48": "srf_toolbox_48.png",

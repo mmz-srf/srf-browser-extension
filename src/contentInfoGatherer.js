@@ -55,18 +55,22 @@ const getBusinessUnit = () => {
   }
 };
 
+export const getAllInfo = () => {
+  return {
+    uuid: getUuid(),
+    urn: getUrn(),
+    phase: getPhase(),
+    portalUrn: getPortalUrn(),
+    hasTicker: getTicker(),
+    businessUnit: getBusinessUnit(),
+    location: window.location,
+  };
+};
+
 chrome.runtime.onMessage.addListener(
   (request, sender, callback) => {
     if (request.action == "getContentInfo") {
-      callback({
-        uuid: getUuid(),
-        urn: getUrn(),
-        phase: getPhase(),
-        portalUrn: getPortalUrn(),
-        hasTicker: getTicker(),
-        businessUnit: getBusinessUnit(),
-        location: window.location,
-      });
+      callback(getAllInfo());
     }
   }
 );
