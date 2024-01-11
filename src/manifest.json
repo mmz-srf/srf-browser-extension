@@ -19,7 +19,7 @@
         "banner.js",
         "contentInfoGatherer.js"
       ],
-      "css" : ["injected.css"],
+      "css" : ["banner.css"],
       "run_at": "document_end"
     },
     {
