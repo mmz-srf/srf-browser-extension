@@ -6,7 +6,7 @@
     <link href="popup.css" rel="stylesheet" />
 </head>
 
-<body>
+<body data-mode="" data-phase="" data-content-class="">
     <div class="container">
         <header class="l-full-width">
             <img src="srf.svg" width="56px" />
@@ -69,12 +69,16 @@
                 <div class="section__content">
                     <ul class="links">
                         <li>
-                            <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
+                            <a class="link link--button link--replace-url js-not-on-test" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$ID" href="">
+                                <img class="link__icon" src="Edith.svg" />
+                                In Edith bearbeiten
+                            </a>
+                            <a class="link link--button link--replace-url js-test-only" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
                                 <img class="link__icon" src="Edith.svg" />
                                 In Edith bearbeiten
                             </a>
                         </li>
-                        <li class="js-dev-only">
+                        <li class="js-dev-only js-not-on-test">
                             <a class="link link--button link--replace-url" target="_blank" data-href="$NORA_URL/ui/$PORTAL/articles/$UUID" href="">
                                 <img class="link__icon" src="Edith.svg" />
                                 In Edith bearbeiten (☁)

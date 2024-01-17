@@ -218,12 +218,21 @@ header h1 {
 
 .js-dev-only,
 .js-page-actions,
-.js-article-actions {
+.js-article-actions,
+.js-test-only {
     display: none;
 }
 
 [data-mode^='dev'] .js-dev-only {
     display: block;
+}
+
+[data-phase^='test'] .js-test-only {
+    display: block;
+}
+
+[data-phase^='test'] .js-not-on-test {
+    display: none;
 }
 
 [data-content-class^='landingpage'] .js-page-actions {

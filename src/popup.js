@@ -121,6 +121,8 @@ const getContentInfo = () => {
 
       const { urn, phase, portalUrn, hasTicker, businessUnit, uuid, location } = response;
 
+      document.body.setAttribute('data-phase', phase.toLowerCase());
+
       if (urn) {
         const [,, contentClass, contentId] = urn.split(':');
         onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid);
