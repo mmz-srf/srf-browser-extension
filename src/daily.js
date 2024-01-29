@@ -156,14 +156,18 @@ const teams = [
   }
 ];
 
-const setJiraFullscreen = (fullscreen) => {
+const setJiraFullscreen = (shouldBeFullscreen) => {
   try {
-    if (fullscreen) {
-      document.body.classList.add('ghx-header-compact');
-      document.getElementById('js-work-quickfilters').setAttribute('aria-expanded', false);
-    } else {
-      document.body.classList.remove('ghx-header-compact');
-      document.getElementById('js-work-quickfilters').setAttribute('aria-expanded', true);
+    const button = document.querySelector('[data-testid="platform.ui.fullscreen-button.fullscreen-button"]');
+    const ariaLabel = document.querySelector('[data-testid="platform.ui.fullscreen-button.fullscreen-button"] span[role="img"]').ariaLabel;
+    const isAlreadyFullscreen = ariaLabel.startsWith("Exit") || ariaLabel.endsWith("verlassen");
+
+    if (shouldBeFullscreen && !isAlreadyFullscreen) {
+      button.click();
+    }
+    
+    if (!shouldBeFullscreen && isAlreadyFullscreen) {
+      button.click();
     }
   } catch (error) {}
 };
