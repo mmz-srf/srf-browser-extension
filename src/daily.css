@@ -3,25 +3,20 @@
   grid-auto-flow: column;
   gap: 8px;
   position: fixed;
-  bottom: 2px;
-  right: 2px;
-  padding: 8px;
+  bottom: 24px;
+  left: 24px;
   z-index: 100001;
-  background: rgb(218 218 216 / 96%);
-  border-radius: 2px;
-  opacity: 1;
-  transition: opacity .2s;
-}
 
-.srf-extension-daily--closed {
-  opacity: 0.42;
+  padding: var(--ds-space-075,6px);
+  background: var(--ds-surface-overlay,white);
+  box-shadow: var(--ds-shadow-overlay,4px 8px 14px 0 rgba(9,30,66,0.25));
+  border-radius: 3px;
 }
 
 .srf-extension-daily__ui-container {
-  order: 2;
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: flex-start;
   align-self: stretch;
   justify-content: space-between;
 }
