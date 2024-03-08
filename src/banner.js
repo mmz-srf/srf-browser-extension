@@ -16,6 +16,12 @@ const getPhaseForBanner = () => {
     return 'DEV';
   }
 
+  // aws
+  const awsRegex = /^[a-zA-Z0-9-]+\.console\.aws\.amazon\.com$/;
+  if (awsRegex.test(hostname)) {
+    return window.ConsoleNavService.AccountInfo.loginDisplayNameAccount;
+  }
+
   // special cases for PR apps: regex to the rescue
   const pacTestRegex = /^play-web-pr-\d+\.herokuapp\.com$/;
   if (pacTestRegex.test(hostname)) {

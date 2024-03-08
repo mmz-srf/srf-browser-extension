@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SRF Browser Extension",
   "description": "Little helper for SRF developers and CMS users",
-  "version": "1.7.1",
+  "version": "1.7.2",
   "action": {
     "default_popup": "popup.html"
   },
@@ -13,7 +13,8 @@
         "*://*.rtr.ch/*",
         "*://*.srfdigital.ch/*",
         "*://*.herokuapp.com/*",
-        "*://localhost/*"
+        "*://localhost/*",
+        "*://*.console.aws.amazon.com/*"
       ],
       "js" : [
         "banner.js",
