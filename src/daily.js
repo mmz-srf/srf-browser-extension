@@ -26,8 +26,8 @@ const teams = [
         "name": "Sämi"
       },
       {
-        "img": "https://ca.slack-edge.com/T026NDFG3-U02JP977ZD0-17d952cb4380-48",
-        "name": "Stefan"
+        "img": "https://ca.slack-edge.com/T026NDFG3-U06MZCWK9HV-6ccbdbb48841-512",
+        "name": "Ale"
       },
       {
         "img": "https://ca.slack-edge.com/T026NDFG3-U0TDTTJ6T-11ba3cd42dda-48",
