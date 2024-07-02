@@ -274,40 +274,40 @@ header h1 {
     stroke: var(--text-color);
 }
 
-.show-environment {
+.toggle {
     position: relative;
 }
 
-.show-environment__input {
+.toggle__input {
     display: none;
 }
 
-.show-environment__icon {
+.toggle__icon {
     position: absolute;
     pointer-events: none;
     top: 50%;
     transform: translateY(-50%);
 }
 
-.show-environment__icon * {
+.toggle__icon * {
     fill: var(--text-color);
 }
 
-.show-environment__icon ellipse {
+.toggle__icon ellipse {
     opacity: 0.5;
     transition: opacity 0.2s;
 }
 
-.show-environment__label {
+.toggle__label {
     cursor: pointer;
     padding-left: 30px;
     display: block;
 }
 
-.show-environment__input:checked + .show-environment__icon {
+.toggle__input:checked + .toggle__icon {
     transform: translateY(-50%) rotate(180deg);
 }
 
-.show-environment__input:checked + .show-environment__icon ellipse {
+.toggle__input:checked + .toggle__icon ellipse {
     opacity: 1;
 }
