@@ -60,8 +60,8 @@ const teams = [
     "name": "Ivory",
     "members": [
       {
-        "name": "Claudio",
-        "img": "https://ca.slack-edge.com/T026NDFG3-U026RF3EJ-bf3642dff95b-48"
+        "name": "Ian",
+        "img": "https://ca.slack-edge.com/T026NDFG3-U076X0WF464-dad49d1a4241-48"
       },
       {
         "name": "Hasan",
@@ -99,10 +99,6 @@ const teams = [
         "name": "Ben",
         "img": "https://ca.slack-edge.com/T026NDFG3-U0511NWMN6B-20a08f419cc2-72"
       },
-      {
-        "name": "Lia",
-        "img": "https://ca.slack-edge.com/T026NDFG3-U039G2BJ5HU-c47cb5478e21-72"
-      }
     ]
   },
   {
@@ -147,10 +143,6 @@ const teams = [
       {
         "name": "Simon",
         "img": "https://ca.slack-edge.com/T026NDFG3-U0DL8DTNF-8bd9712d9744-48"
-      },
-      {
-        "name": "Lia",
-        "img": "https://ca.slack-edge.com/T026NDFG3-U039G2BJ5HU-c47cb5478e21-72"
       }
     ]
   }

@@ -20,11 +20,28 @@ const getUuid = () => {
 
 const getPhase = () => {
   const url = window.location.href;
-  if(url.indexOf('www-test.') >= 0) {
+  const host = window.location.host;
+  const port = window.location.port;
+
+  // aron does not use www-X
+  const isAron = host.split('.')[0] === 'aron' || port === '4200';
+  if (isAron) {
+    if (host.indexOf('aron.dev.') >= 0) {
+      return 'TEST';
+    } else if (host.indexOf('aron.int.') >= 0) {
+      return 'STAGE';
+    } else if (port === '4200') {
+      return 'DEV';
+    } else {
+      return 'PROD';
+    }
+  }
+
+  if (url.indexOf('www-test.') >= 0) {
     return 'TEST';
   } else if (url.indexOf('www-stage.') >= 0) {
     return 'STAGE';
-  } else if (url.indexOf('dev.') >= 0 || url.indexOf('pascal.') >= 0) {
+  } else if (url.indexOf('dev.') >= 0) {
     return 'DEV';
   } else {
     return 'PROD';
