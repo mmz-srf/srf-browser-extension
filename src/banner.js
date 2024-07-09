@@ -1,18 +1,18 @@
 const getPhaseForBanner = () => {
   const { hostname, port, pathname } = window.location;
 
-  const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch', 'srf-comments-dev.herokuapp.com'];
-  const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch', 'srf-comments-int.herokuapp.com'];
-  const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch', 'comments.srfdigital.ch'];
+  const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch', 'srf-comments-dev.herokuapp.com', 'aron.dev.srf.ch'];
+  const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch', 'srf-comments-int.herokuapp.com', 'aron.int.srf.ch'];
+  const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch', 'comments.srfdigital.ch', 'aron.srf.ch'];
   const localHosts = ['dev.srf.ch', 'dev.rtr.ch', 'pascal.srf.ch', 'pascal.rtr.ch'];
 
-  if (testHosts.includes(hostname)) {
+  if (testHosts.find((host) => hostname.includes(host))) {
     return 'TEST';
-  } else if (stageHosts.includes(hostname)) {
+  } else if (stageHosts.find((host) => hostname.includes(host))) {
     return 'STAGE';
-  } else if (prodHosts.includes(hostname)) {
+  } else if (prodHosts.find((host) => hostname.includes(host))) {
     return 'PROD';
-  } else if (localHosts.includes(hostname)) {
+  } else if (localHosts.find((host) => hostname.includes(host))) {
     return 'DEV';
   }
 
@@ -31,10 +31,14 @@ const getPhaseForBanner = () => {
     // Nora local: http://localhost:6900/ui/portal/*
     // Play FE local: http://localhost:4000/srf/play/tv
     // Play BE local: http://localhost:4004/pac/*
+    // Aron FE local: http://localhost:4200/*
 
-    if ((port === "6900" && pathname.startsWith('/ui/')) ||
-    (port === "4000" && pathname.split('/')[2] === 'tv') ||
-    (port === "4004" && pathname.startsWith('/pac/'))) {
+    if (
+      (port === "6900" && pathname.startsWith('/ui/')) ||
+      (port === "4000" && pathname.split('/')[2] === 'tv') ||
+      (port === "4004" && pathname.startsWith('/pac/')) ||
+      (port === "4200")
+    ) {
       return 'DEV';
     }
   }
