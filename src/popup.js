@@ -46,7 +46,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) 
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl;
 
   switch (phase) {
     case "DEV":
