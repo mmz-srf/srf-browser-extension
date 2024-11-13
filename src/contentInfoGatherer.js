@@ -27,22 +27,22 @@ const getPhase = () => {
   const isAron = host.split('.')[0] === 'aron' || port === '4200';
   if (isAron) {
     if (host.indexOf('aron.dev.') >= 0) {
-      return 'TEST';
-    } else if (host.indexOf('aron.int.') >= 0) {
-      return 'STAGE';
-    } else if (port === '4200') {
       return 'DEV';
+    } else if (host.indexOf('aron.int.') >= 0) {
+      return 'INT';
+    } else if (port === '4200') {
+      return 'LOCAL';
     } else {
       return 'PROD';
     }
   }
 
-  if (url.indexOf('www-test.') >= 0) {
-    return 'TEST';
-  } else if (url.indexOf('www-stage.') >= 0) {
-    return 'STAGE';
-  } else if (url.indexOf('dev.') >= 0) {
+  if (url.indexOf('www-test.') >= 0 || url.indexOf('www.dev.') >= 0) {
     return 'DEV';
+  } else if (url.indexOf('www-stage.') >= 0 || url.indexOf('www.int.') >= 0) {
+    return 'INT';
+  } else if (url.indexOf('dev.') >= 0 || url.indexOf('ez.') >= 0) {
+    return 'LOCAL';
   } else {
     return 'PROD';
   }

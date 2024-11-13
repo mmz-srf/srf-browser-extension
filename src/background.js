@@ -25,15 +25,15 @@ chrome.contextMenus.onClicked.addListener((clickData) => {
       const portalId = portalUrn.split(':').reverse()[0];
 
       const host =
-        phase === 'DEV' ? 'http://localhost:6900' :
-        phase === 'TEST' ? 'https://nora.dev.srfdigital.ch' :
-        phase === 'STAGE' ? 'https://nora.int.srfdigital.ch' :
+        phase === 'LOCAL' ? 'http://localhost:6900' :
+        phase === 'DEV' ? 'https://nora.dev.srfdigital.ch' :
+        phase === 'INT' ? 'https://nora.int.srfdigital.ch' :
         'https://nora.srfdigital.ch';
 
 
       if (contentClass === 'article') {
-        // temporary: on test, UUID is used, but not yet on other phases
-        if (phase === 'TEST') {
+        // temporary: on dev, UUID is used, but not yet on other phases
+        if (phase === 'DEV') {
           openUrl(`${host}/ui/${portalId}/articles/${uuid}`);
         } else {
           openUrl(`${host}/ui/${portalId}/articles/${contentId}`);

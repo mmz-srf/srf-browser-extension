@@ -13,11 +13,11 @@
   font-size: 12px;
 }
 
-.srf-tools__banner.srf-tools__banner--test {
+.srf-tools__banner.srf-tools__banner--dev {
   background-color: green;
 }
 
-.srf-tools__banner.srf-tools__banner--stage {
+.srf-tools__banner.srf-tools__banner--int {
   background-color: blue;
 }
 
