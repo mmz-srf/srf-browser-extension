@@ -311,3 +311,27 @@ header h1 {
 .toggle__input:checked + .toggle__icon ellipse {
     opacity: 1;
 }
+
+.separator {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    margin-top: 1px;
+    margin-bottom: 1px;
+    font-size: 0.7rem;
+}
+  
+.separator::before,
+.separator::after {
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid var(--text-color);
+}
+  
+.separator:not(:empty)::before {
+    margin-right: .25em;
+}
+  
+.separator:not(:empty)::after {
+    margin-left: .25em;
+}

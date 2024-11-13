@@ -31,7 +31,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
+const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) => {
   contentIdInput.value = contentId;
 
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -39,12 +39,14 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
   // $NORA_URL  = https://nora.srfdigital.ch (depending on phase)
   // $ADMIN_URL = https://admin.cms.zrh.production.srf.mpc (depending on phase)
   // $TWEETY_URL = https://comments.srfdigital.ch (depending on phase)
+  // $ARON_URL  = https://aron.srf.ch
+  // $URN       = urn, e.g. urn:srf:article:12345678
   // $ID        = contentId
   // $UUID      = uuid
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl;
 
   switch (phase) {
     case "DEV":
@@ -52,18 +54,21 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
       noraUrl = "http://localhost:6900";
       adminUrl = "http://admin.dev.srf.mpc";
       tweetyUrl = "http://localhost:8050";
+      aronUrl = "http://dev.srf.ch:4200";
       break;
     case "TEST":
       frontendUrl = "https://www-test.srf.ch";
       noraUrl = "https://nora.dev.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.test.srf.mpc";
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
+      aronUrl = "https://aron.dev.srf.ch";
       break;
     case "STAGE":
       frontendUrl = "https://www-stage.srf.ch";
       noraUrl = "https://nora.int.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.stage.srf.mpc";
       tweetyUrl = "https://srf-comments-int.herokuapp.com";
+      aronUrl = "https://aron.int.srf.ch";
       break;
     case "PROD":
     default:
@@ -71,6 +76,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
       noraUrl = "https://nora.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.production.srf.mpc";
       tweetyUrl = "https://comments.srfdigital.ch";
+      aronUrl = "https://aron.srf.ch";
       break;
   }
 
@@ -84,9 +90,11 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid) => {
       .replace("$NORA_URL", noraUrl)
       .replace("$ADMIN_URL", adminUrl)
       .replace("$TWEETY_URL", tweetyUrl)
+      .replace("$ARON_URL", aronUrl)
       .replace("$PORTAL", portalUrn.split(":").reverse()[0])
       .replace("$BU", businessUnit)
-      .replace("$UUID", uuid);
+      .replace("$UUID", uuid)
+      .replace("$URN", urn);
     element.href = href;
   });
 };
@@ -143,7 +151,7 @@ const getContentInfo = () => {
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid, urn);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);

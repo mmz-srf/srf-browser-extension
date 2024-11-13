@@ -24,8 +24,9 @@ npm run start # starts the dev server in watch mode
 
 Load the unpacked extension by following this [guide](https://developer.chrome.com/docs/extensions/get-started/tutorial/hello-world#load-unpacked) and using the `dist` directory.
 
-"unpacked" means that the extension is now loaded from the web store but that it is loaded as-is from your local directory.
+"unpacked" means that the extension is not loaded from the web store but that it is loaded as-is from your local directory.
 
+Hint: loading an unpacked version of the extension does not disable the one loaded from the web store. Make sure you're testing the correct one!
 
 ### Auto-Publishing
 The extension is automatically published to the Chrome Web Store when a Pull Request is merged into the `main` branch.
