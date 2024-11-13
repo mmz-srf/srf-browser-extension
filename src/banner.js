@@ -7,23 +7,23 @@ const getPhaseForBanner = () => {
   const localHosts = ['ez.srf.ch', 'ez.rtr.ch', 'pascal.srf.ch', 'pascal.rtr.ch'];
 
   if (testHosts.find((host) => hostname.includes(host))) {
-    return 'TEST';
+    return 'DEV';
   } else if (stageHosts.find((host) => hostname.includes(host))) {
-    return 'STAGE';
+    return 'INT';
   } else if (prodHosts.find((host) => hostname.includes(host))) {
     return 'PROD';
   } else if (localHosts.find((host) => hostname.includes(host))) {
-    return 'DEV';
+    return 'LOCAL';
   }
 
   // special cases for PR apps: regex to the rescue
   const pacTestRegex = /^play-web-pr-\d+\.herokuapp\.com$/;
   if (pacTestRegex.test(hostname)) {
-    return 'TEST';
+    return 'DEV';
   }
   const noraTestRegex = /^nora-pr-\d+\.herokuapp\.com$/;
   if (noraTestRegex.test(hostname)) {
-    return 'TEST';
+    return 'DEV';
   }
 
   // local dev environments have little useful info in the hostname
@@ -39,7 +39,7 @@ const getPhaseForBanner = () => {
       (port === "4004" && pathname.startsWith('/pac/')) ||
       (port === "4200")
     ) {
-      return 'DEV';
+      return 'LOCAL';
     }
   }
 

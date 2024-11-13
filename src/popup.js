@@ -49,21 +49,21 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) 
   let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl;
 
   switch (phase) {
-    case "DEV":
+    case "LOCAL":
       frontendUrl = "http://www.dev.srf.ch";
       noraUrl = "http://localhost:6900";
       adminUrl = "http://admin.dev.srf.mpc";
       tweetyUrl = "http://localhost:8050";
       aronUrl = "http://dev.srf.ch:4200";
       break;
-    case "TEST":
+    case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
       noraUrl = "https://nora.dev.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.test.srf.mpc";
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
       aronUrl = "https://aron.dev.srf.ch";
       break;
-    case "STAGE":
+    case "INT":
       frontendUrl = "https://www.int.srf.ch";
       noraUrl = "https://nora.int.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.stage.srf.mpc";
