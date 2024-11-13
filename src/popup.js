@@ -57,14 +57,14 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) 
       aronUrl = "http://dev.srf.ch:4200";
       break;
     case "TEST":
-      frontendUrl = "https://www-test.srf.ch";
+      frontendUrl = "https://www.dev.srf.ch";
       noraUrl = "https://nora.dev.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.test.srf.mpc";
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
       aronUrl = "https://aron.dev.srf.ch";
       break;
     case "STAGE":
-      frontendUrl = "https://www-stage.srf.ch";
+      frontendUrl = "https://www.int.srf.ch";
       noraUrl = "https://nora.int.srfdigital.ch";
       adminUrl = "https://admin.cms.zrh.stage.srf.mpc";
       tweetyUrl = "https://srf-comments-int.herokuapp.com";
