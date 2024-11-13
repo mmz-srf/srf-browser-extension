@@ -50,7 +50,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) 
 
   switch (phase) {
     case "LOCAL":
-      frontendUrl = "http://www.dev.srf.ch";
+      frontendUrl = "http://www.ez.srf.ch";
       noraUrl = "http://localhost:6900";
       adminUrl = "http://admin.dev.srf.mpc";
       tweetyUrl = "http://localhost:8050";
