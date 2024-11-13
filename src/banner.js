@@ -1,9 +1,9 @@
 const getPhaseForBanner = () => {
   const { hostname, port, pathname } = window.location;
 
-  const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch', 'srf-comments-dev.herokuapp.com', 'aron.dev.srf.ch'];
-  const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch', 'srf-comments-int.herokuapp.com', 'aron.int.srf.ch'];
-  const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch', 'comments.srfdigital.ch', 'aron.srf.ch'];
+  const testHosts = ['www-test.srf.ch', 'www-test.rtr.ch', 'nora.dev.srfdigital.ch', 'srf-comments-dev.herokuapp.com', 'aron.dev.srf.ch', 'www.dev.srf.ch', 'www.dev.rtr.ch'];
+  const stageHosts = ['play-web-staging.herokuapp.com', 'www-stage.srf.ch', 'www-stage.rtr.ch', 'nora.int.srfdigital.ch', 'srf-comments-int.herokuapp.com', 'aron.int.srf.ch', 'www.int.srf.ch', 'www.int.rtr.ch'];
+  const prodHosts = ['play-web.herokuapp.com', 'www.srf.ch', 'www.rtr.ch', 'nora.srfdigital.ch', 'comments.srfdigital.ch', 'aron.srf.ch', 'beta.srf.ch', 'beta.rtr.ch'];
   const localHosts = ['dev.srf.ch', 'dev.rtr.ch', 'pascal.srf.ch', 'pascal.rtr.ch'];
 
   if (testHosts.find((host) => hostname.includes(host))) {

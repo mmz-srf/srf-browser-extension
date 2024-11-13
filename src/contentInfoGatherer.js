@@ -37,11 +37,11 @@ const getPhase = () => {
     }
   }
 
-  if (url.indexOf('www-test.') >= 0) {
+  if (url.indexOf('www-test.') >= 0 || url.indexOf('www.dev.') >= 0) {
     return 'TEST';
-  } else if (url.indexOf('www-stage.') >= 0) {
+  } else if (url.indexOf('www-stage.') >= 0 || url.indexOf('www.int.') >= 0) {
     return 'STAGE';
-  } else if (url.indexOf('dev.') >= 0) {
+  } else if (url.indexOf('dev.') >= 0 || url.indexOf('ez.') >= 0) {
     return 'DEV';
   } else {
     return 'PROD';
