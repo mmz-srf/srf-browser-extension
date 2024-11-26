@@ -15,7 +15,7 @@ chrome.contextMenus.onClicked.addListener((clickData) => {
         return;
       }
 
-      const { urn, phase, portalUrn, uuid } = response;
+      const { urn, phase, portalUrn } = response;
 
       if (!urn) {
         return;
@@ -32,12 +32,7 @@ chrome.contextMenus.onClicked.addListener((clickData) => {
 
 
       if (contentClass === 'article') {
-        // temporary: on dev, UUID is used, but not yet on other phases
-        if (phase === 'DEV') {
-          openUrl(`${host}/ui/${portalId}/articles/${uuid}`);
-        } else {
-          openUrl(`${host}/ui/${portalId}/articles/${contentId}`);
-        }
+        openUrl(`${host}/ui/${portalId}/articles/${contentId}`);
       } else if (contentClass === 'landingpage') {
         openUrl(`${host}/ui/${portalId}/pages/${contentId}`);
       } else {

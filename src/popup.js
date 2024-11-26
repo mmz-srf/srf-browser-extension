@@ -31,7 +31,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) => {
+const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
   contentIdInput.value = contentId;
 
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -42,7 +42,6 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) 
   // $ARON_URL  = https://aron.srf.ch
   // $URN       = urn, e.g. urn:srf:article:12345678
   // $ID        = contentId
-  // $UUID      = uuid
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
@@ -93,7 +92,6 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, uuid, urn) 
       .replace("$ARON_URL", aronUrl)
       .replace("$PORTAL", portalUrn.split(":").reverse()[0])
       .replace("$BU", businessUnit)
-      .replace("$UUID", uuid)
       .replace("$URN", urn);
     element.href = href;
   });
@@ -145,13 +143,12 @@ const getContentInfo = () => {
           portalUrn,
           hasTicker,
           businessUnit,
-          uuid,
           location,
         } = response;
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, uuid, urn);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);
