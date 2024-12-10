@@ -2,7 +2,7 @@
   "manifest_version": 3,
   "name": "SRF Browser Extension",
   "description": "Little helper for SRF developers and CMS users",
-  "version": "1.10.0",
+  "version": "1.11.0",
   "action": {
     "default_popup": "popup.html"
   },
@@ -20,16 +20,6 @@
         "contentInfoGatherer.js"
       ],
       "css" : ["banner.css"],
-      "run_at": "document_end"
-    },
-    {
-      "matches": [
-        "*://srgssr-ch.atlassian.net/*"
-      ],
-      "js" : [
-        "daily.js"
-      ],
-      "css" : ["daily.css"],
       "run_at": "document_end"
     }
   ],
