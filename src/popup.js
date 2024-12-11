@@ -154,7 +154,7 @@ const getContentInfo = () => {
         }
 
         const {
-            urn,
+          urn,
           phase,
           portalUrn,
           hasTicker,
