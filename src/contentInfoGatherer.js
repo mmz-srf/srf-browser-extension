@@ -8,6 +8,14 @@ const getUrn = () => {
   }
 }
 
+// if urn contains :show: then it is a show page
+const getShow = () => {
+  const aisShowId = document.querySelector('meta[name="ais:show:id"]');
+  if (aisShowId) {
+    return aisShowId.getAttribute('content');
+  }
+}
+
 const getPhase = () => {
   const url = window.location.href;
   const host = window.location.host;
@@ -70,6 +78,7 @@ export const getAllInfo = () => {
     hasTicker: getTicker(),
     businessUnit: getBusinessUnit(),
     location: window.location,
+    aisShowId: getShow()
   };
 };
 

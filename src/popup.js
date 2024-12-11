@@ -31,7 +31,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
+const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId) => {
   contentIdInput.value = contentId;
 
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -45,7 +45,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showUrl, showPdpUrl, tomUrl;
 
   switch (phase) {
     case "LOCAL":
@@ -54,6 +54,9 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       adminUrl = "http://admin.dev.srf.mpc";
       tweetyUrl = "http://localhost:8050";
       aronUrl = "http://dev.srf.ch:4200";
+      showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
+      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
+      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
@@ -61,6 +64,9 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       adminUrl = "https://admin.cms.zrh.test.srf.mpc";
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
       aronUrl = "https://aron.dev.srf.ch";
+      showUrl = "https://srf-epg-proxy-test.herokuapp.com/eaw/shows/";
+      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
+      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
       break;
     case "INT":
       frontendUrl = "https://www.int.srf.ch";
@@ -68,6 +74,9 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       adminUrl = "https://admin.cms.zrh.stage.srf.mpc";
       tweetyUrl = "https://srf-comments-int.herokuapp.com";
       aronUrl = "https://aron.int.srf.ch";
+      showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
+      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
+      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
       break;
     case "PROD":
     default:
@@ -76,6 +85,9 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       adminUrl = "https://admin.cms.zrh.production.srf.mpc";
       tweetyUrl = "https://comments.srfdigital.ch";
       aronUrl = "https://aron.srf.ch";
+      showUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
+      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
+      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
       break;
   }
 
@@ -92,7 +104,11 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       .replace("$ARON_URL", aronUrl)
       .replace("$PORTAL", portalUrn.split(":").reverse()[0])
       .replace("$BU", businessUnit)
-      .replace("$URN", urn);
+      .replace("$URN", urn)
+        // EAW
+      .replace("$EAW_PROXY_SHOW", showUrl+urn.split(":").reverse()[0])
+      .replace("$EAW_SHOW_PDP", showPdpUrl)
+      .replace("$EAW_TOM", tomUrl);
     element.href = href;
   });
 };
@@ -138,17 +154,18 @@ const getContentInfo = () => {
         }
 
         const {
-          urn,
+            urn,
           phase,
           portalUrn,
           hasTicker,
           businessUnit,
           location,
+          aisShowId,
         } = response;
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);
