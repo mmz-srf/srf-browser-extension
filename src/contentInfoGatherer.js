@@ -78,7 +78,7 @@ export const getAllInfo = () => {
     hasTicker: getTicker(),
     businessUnit: getBusinessUnit(),
     location: window.location,
-    aisShowId: getShow()
+    aisShowId: getShow(),
   };
 };
 
