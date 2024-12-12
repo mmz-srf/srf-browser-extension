@@ -21,16 +21,6 @@
       ],
       "css" : ["banner.css"],
       "run_at": "document_end"
-    },
-    {
-      "matches": [
-        "*://srgssr-ch.atlassian.net/*"
-      ],
-      "js" : [
-        "daily.js"
-      ],
-      "css" : ["daily.css"],
-      "run_at": "document_end"
     }
   ],
   "permissions": [

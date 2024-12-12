@@ -3,8 +3,7 @@ Browser extension to make working with SRF/RTR content easier:
 * displays a banner with the current environment
 * adds an entry to the context menu to directly edit articles/landingpages in the CMS
 * shows actions in the popup panel to edit articles/landingpages/livetickers
-* link collection for front and backend
-* daily standup feature for JIRA - maximizes board, displays team members
+* link collection for front- and backend
 * supports dark theme
 * developer/experimental view with additional links and actions (e.g. webview, JSON view)
 
