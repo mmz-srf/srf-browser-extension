@@ -122,6 +122,10 @@ const onInfoGatheringFailed = () => {
   document.querySelector(".js-contentinfo").style.display = "none";
 };
 
+const onAisShowIdNotFound = () => {
+  document.querySelector(".js-ais-show-id").style.display = "none";
+}
+
 // depending on the content class, different areas in the popup should be hidden/shown
 const onContentClassFound = (contentClass) => {
   if (contentClass === "landingpage") {
@@ -154,7 +158,7 @@ const getContentInfo = () => {
         }
 
         const {
-            urn,
+          urn,
           phase,
           portalUrn,
           hasTicker,
@@ -162,6 +166,10 @@ const getContentInfo = () => {
           location,
           aisShowId,
         } = response;
+
+        if (!aisShowId) {
+          onAisShowIdNotFound();
+        }
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
