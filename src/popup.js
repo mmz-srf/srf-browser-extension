@@ -45,7 +45,7 @@ const setupBannerCheckboxListener = () => {
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showUrl, showPdpUrl, ilUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showUrl, showPdpUrl, ilShowUrl;
 
   switch (phase) {
     case "LOCAL":
@@ -56,7 +56,7 @@ const setupBannerCheckboxListener = () => {
       aronUrl = "http://dev.srf.ch:4200";
       showUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
+      ilShowUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
@@ -66,7 +66,7 @@ const setupBannerCheckboxListener = () => {
       aronUrl = "https://aron.dev.srf.ch";
       showUrl = "https://srf-epg-proxy-test.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://mediathek.pdp.dev.srgssr.ch/api/testing/shows/"+aisShowId;
-      ilUrl = "http://il-test.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
+      ilShowUrl = "http://il-test.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "INT":
       frontendUrl = "https://www.int.srf.ch";
@@ -76,7 +76,7 @@ const setupBannerCheckboxListener = () => {
       aronUrl = "https://aron.int.srf.ch";
       showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://mediathek.pdp.int.srgssr.ch/api/testing/shows/"+aisShowId;
-      ilUrl = "http://il-stage.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
+      ilShowUrl = "http://il-stage.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "PROD":
     default:
@@ -87,7 +87,7 @@ const setupBannerCheckboxListener = () => {
       aronUrl = "https://aron.srf.ch";
       showUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
+      ilShowUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
   }
 
@@ -108,7 +108,7 @@ const setupBannerCheckboxListener = () => {
         // EAW
       .replace("$EAW_PROXY_SHOW", showUrl+urn.split(":").reverse()[0])
       .replace("$EAW_PDP_SHOW", showPdpUrl)
-      .replace("$EAW_IL_SHOW", ilUrl);
+      .replace("$EAW_IL_SHOW", ilShowUrl);
     element.href = href;
   });
 };
