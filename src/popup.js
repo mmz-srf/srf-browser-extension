@@ -31,7 +31,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId) => {
+  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId) => {
   contentIdInput.value = contentId;
 
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -45,7 +45,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisSho
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showUrl, showPdpUrl, tomUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showUrl, showPdpUrl, ilUrl;
 
   switch (phase) {
     case "LOCAL":
@@ -56,7 +56,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisSho
       aronUrl = "http://dev.srf.ch:4200";
       showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
+      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
@@ -66,7 +66,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisSho
       aronUrl = "https://aron.dev.srf.ch";
       showUrl = "https://srf-epg-proxy-test.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
+      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "INT":
       frontendUrl = "https://www.int.srf.ch";
@@ -76,7 +76,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisSho
       aronUrl = "https://aron.int.srf.ch";
       showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
+      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "PROD":
     default:
@@ -87,7 +87,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisSho
       aronUrl = "https://aron.srf.ch";
       showUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      tomUrl = "https://tom.zrh.production.srf.mpc/mediagroup/"+aisShowId+"#&pageNumber=1&pageSize=10&sortDir=desc"
+      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
   }
 
@@ -107,8 +107,8 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisSho
       .replace("$URN", urn)
         // EAW
       .replace("$EAW_PROXY_SHOW", showUrl+urn.split(":").reverse()[0])
-      .replace("$EAW_SHOW_PDP", showPdpUrl)
-      .replace("$EAW_TOM", tomUrl);
+      .replace("$EAW_PDP_SHOW", showPdpUrl)
+      .replace("$EAW_IL_SHOW", ilUrl);
     element.href = href;
   });
 };
