@@ -31,7 +31,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId) => {
+  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId) => {
   contentIdInput.value = contentId;
 
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -45,7 +45,7 @@ const setupBannerCheckboxListener = () => {
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showProxyUrl, showPdpUrl, ilShowUrl, epsiodeProxyUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showProxyUrl, showPdpUrl, ilShowUrl, episodeProxyUrl, episodePdpUrl;
 
   switch (phase) {
     case "LOCAL":
@@ -58,7 +58,8 @@ const setupBannerCheckboxListener = () => {
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
       ilShowUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
       // Episode
-      epsiodeProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/episodes/"+episodeId;
+      episodeProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/episodes/"+episodeId;
+      episodePdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/programmes/urn%3Apdp%3Aais_srf%3Aprogramme%3A"+pdpAisId;
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
@@ -111,7 +112,8 @@ const setupBannerCheckboxListener = () => {
       .replace("$EAW_PROXY_SHOW", showProxyUrl+urn.split(":").reverse()[0])
       .replace("$EAW_PDP_SHOW", showPdpUrl)
       .replace("$EAW_IL_SHOW", ilShowUrl)
-      .replace("$EAW_PROXY_EPISODE", epsiodeProxyUrl);
+      .replace("$EAW_PROXY_EPISODE", episodeProxyUrl)
+      .replace("$EAW_PDP_EPISODE", episodePdpUrl);
     element.href = href;
   });
 };
@@ -173,6 +175,7 @@ const getContentInfo = () => {
           location,
           aisShowId,
           episodeId,
+          pdpAisId
         } = response;
 
         if (!aisShowId) {
@@ -185,7 +188,7 @@ const getContentInfo = () => {
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);

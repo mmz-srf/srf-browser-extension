@@ -22,6 +22,13 @@ const getEpisode = () => {
   }
 }
 
+const getPdpAisId = () => {
+  const pdpAisId = document.querySelector('meta[name="pdp:ais:id"]');
+  if (pdpAisId) {
+    return pdpAisId.getAttribute('content');
+  }
+}
+
 const getPhase = () => {
   const url = window.location.href;
   const host = window.location.host;
@@ -86,6 +93,7 @@ export const getAllInfo = () => {
     location: window.location,
     aisShowId: getShow(),
     episodeId: getEpisode(),
+    pdpAisId: getPdpAisId(),
   };
 };
 
