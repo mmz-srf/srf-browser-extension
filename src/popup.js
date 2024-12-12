@@ -31,7 +31,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId) => {
+  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId) => {
   contentIdInput.value = contentId;
 
   // idea: loop over all links, replace various placeholders with the correct data:
@@ -58,7 +58,7 @@ const setupBannerCheckboxListener = () => {
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
       ilShowUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
       // Episode
-      epsiodeProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/episodes/";
+      epsiodeProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/episodes/"+episodeId;
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
@@ -110,7 +110,8 @@ const setupBannerCheckboxListener = () => {
         // EAW
       .replace("$EAW_PROXY_SHOW", showProxyUrl+urn.split(":").reverse()[0])
       .replace("$EAW_PDP_SHOW", showPdpUrl)
-      .replace("$EAW_IL_SHOW", ilShowUrl);
+      .replace("$EAW_IL_SHOW", ilShowUrl)
+      .replace("$EAW_PROXY_EPISODE", epsiodeProxyUrl);
     element.href = href;
   });
 };
@@ -126,6 +127,10 @@ const onInfoGatheringFailed = () => {
 
 const onAisShowIdNotFound = () => {
   document.querySelector(".js-ais-show-id").style.display = "none";
+}
+
+const onEpisodeIdNotFound = () => {
+  document.querySelector(".js-episode-id").style.display = "none";
 }
 
 // depending on the content class, different areas in the popup should be hidden/shown
@@ -167,15 +172,20 @@ const getContentInfo = () => {
           businessUnit,
           location,
           aisShowId,
+          episodeId,
         } = response;
 
         if (!aisShowId) {
           onAisShowIdNotFound();
         }
 
+        if (!episodeId) {
+          onEpisodeIdNotFound();
+        }
+
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);
