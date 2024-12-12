@@ -56,7 +56,7 @@ const setupBannerCheckboxListener = () => {
       aronUrl = "http://dev.srf.ch:4200";
       showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
+      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
