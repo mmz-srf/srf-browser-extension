@@ -54,7 +54,7 @@ const setupBannerCheckboxListener = () => {
       adminUrl = "http://admin.dev.srf.mpc";
       tweetyUrl = "http://localhost:8050";
       aronUrl = "http://dev.srf.ch:4200";
-      showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
+      showUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
       showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
       ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
       break;
@@ -65,8 +65,8 @@ const setupBannerCheckboxListener = () => {
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
       aronUrl = "https://aron.dev.srf.ch";
       showUrl = "https://srf-epg-proxy-test.herokuapp.com/eaw/shows/";
-      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
+      showPdpUrl = "https://mediathek.pdp.dev.srgssr.ch/api/testing/shows/"+aisShowId;
+      ilUrl = "http://il-test.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "INT":
       frontendUrl = "https://www.int.srf.ch";
@@ -75,8 +75,8 @@ const setupBannerCheckboxListener = () => {
       tweetyUrl = "https://srf-comments-int.herokuapp.com";
       aronUrl = "https://aron.int.srf.ch";
       showUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
-      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
+      showPdpUrl = "https://mediathek.pdp.int.srgssr.ch/api/testing/shows/"+aisShowId;
+      ilUrl = "http://il-stage.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       break;
     case "PROD":
     default:
