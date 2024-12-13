@@ -77,7 +77,7 @@ const getPortalUrn = () => {
 }
 
 const getTicker = () => {
-  const tickerNode = document.querySelector('article .article-content #ticker');
+  const tickerNode = document.querySelector('.articlepage #ticker');
   return !!tickerNode;
 };
 
