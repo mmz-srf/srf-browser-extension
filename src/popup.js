@@ -1,4 +1,7 @@
 import getCommentInfo from "./comments";
+import { getShowUrls } from "./Audiothek/show";
+import { getEpisodeUrls } from "./Audiothek/episode";
+import { getPartUrls} from "./Audiothek/part";
 
 const showEnvironmentCheckbox = document.getElementById("showEnvironment");
 const contentIdInput = document.getElementById("contentIdInput");
@@ -31,8 +34,11 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId) => {
+  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId) => {
   contentIdInput.value = contentId;
+  const { showProxyUrl, showPdpUrl, ilShowUrl } = getShowUrls(aisShowId, phase, businessUnit);
+  const { episodeProxyUrl, episodePdpUrl, episodeIlUrl } = getEpisodeUrls(episodeId, pdpAisId, phase);
+  const { partProxyUrl, partPdpUrl, partIlUrl } = getPartUrls(partId, pdpAisId, phase);
 
   // idea: loop over all links, replace various placeholders with the correct data:
   // $FE_URL    = https://www.srf.ch (depending on phase)
@@ -45,7 +51,7 @@ const setupBannerCheckboxListener = () => {
   // $PORTAL    = portal, e.g. "news"
   // $BU        = business unit, i.e. "rtr" or "srf"
 
-  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl, showProxyUrl, showPdpUrl, ilShowUrl, episodeProxyUrl, episodePdpUrl, episodeIlUrl;
+  let frontendUrl, noraUrl, adminUrl, tweetyUrl, aronUrl;
 
   switch (phase) {
     case "LOCAL":
@@ -54,13 +60,6 @@ const setupBannerCheckboxListener = () => {
       adminUrl = "http://admin.dev.srf.mpc";
       tweetyUrl = "http://localhost:8050";
       aronUrl = "http://dev.srf.ch:4200";
-      showProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
-      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilShowUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/show/radio/"+aisShowId;
-      // Episode
-      episodeProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/episodes/"+episodeId;
-      episodePdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/programmes/urn%3Apdp%3Aais_srf%3Aprogramme%3A"+pdpAisId;
-      episodeIlUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/srfMedia/"+pdpAisId;
       break;
     case "DEV":
       frontendUrl = "https://www.dev.srf.ch";
@@ -68,13 +67,7 @@ const setupBannerCheckboxListener = () => {
       adminUrl = "https://admin.cms.zrh.test.srf.mpc";
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
       aronUrl = "https://aron.dev.srf.ch";
-      showProxyUrl = "https://srf-epg-proxy-test.herokuapp.com/eaw/shows/";
-      showPdpUrl = "https://mediathek.pdp.dev.srgssr.ch/api/testing/shows/"+aisShowId;
-      ilShowUrl = "http://il-test.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
       // Episode
-      episodeProxyUrl = "https://srf-epg-proxy-test.herokuapp.com/eaw/episodes/"+episodeId;
-      episodePdpUrl = "https://mediathek.pdp.dev.srgssr.ch/api/testing/programmes/"+episodeId;
-      episodeIlUrl = "http://il-test.srgssr.ch/integrationlayer/2.0/srf/srfMedia/"+pdpAisId;
       break;
     case "INT":
       frontendUrl = "https://www.int.srf.ch";
@@ -82,13 +75,6 @@ const setupBannerCheckboxListener = () => {
       adminUrl = "https://admin.cms.zrh.stage.srf.mpc";
       tweetyUrl = "https://srf-comments-int.herokuapp.com";
       aronUrl = "https://aron.int.srf.ch";
-      showProxyUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/shows/";
-      showPdpUrl = "https://mediathek.pdp.int.srgssr.ch/api/testing/shows/"+aisShowId;
-      ilShowUrl = "http://il-stage.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
-      // Episode
-      episodeProxyUrl = "https://srf-epg-proxy-stage.herokuapp.com/eaw/episodes/"+episodeId;
-      episodePdpUrl = "https://mediathek.pdp.int.srgssr.ch/api/testing/programmes/"+episodeId;
-      episodeIlUrl = "http://il-stage.srgssr.ch/integrationlayer/2.0/srf/srfMedia/"+pdpAisId;
       break;
     case "PROD":
     default:
@@ -97,13 +83,6 @@ const setupBannerCheckboxListener = () => {
       adminUrl = "https://admin.cms.zrh.production.srf.mpc";
       tweetyUrl = "https://comments.srfdigital.ch";
       aronUrl = "https://aron.srf.ch";
-      showProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/shows/";
-      showPdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/collections/urn%3Apdp%3Aais_srf%3Acollection%3A"+aisShowId;
-      ilShowUrl = "http://il.srgssr.ch/integrationlayer/2.0/"+businessUnit+"/show/radio/"+aisShowId;
-      // Episode
-      episodeProxyUrl = "https://srf-epg-proxy.herokuapp.com/eaw/episodes/"+episodeId;
-      episodePdpUrl = "https://api.pdp.production.srgssr.ch/api/v2/programmes/urn%3Apdp%3Aais_srf%3Aprogramme%3A"+pdpAisId;
-      episodeIlUrl = "http://il.srgssr.ch/integrationlayer/2.0/srf/srfMedia/"+pdpAisId;
       break;
   }
 
@@ -127,7 +106,10 @@ const setupBannerCheckboxListener = () => {
       .replace("$EAW_IL_SHOW", ilShowUrl)
       .replace("$EAW_PROXY_EPISODE", episodeProxyUrl)
       .replace("$EAW_PDP_EPISODE", episodePdpUrl)
-      .replace("$EAW_IL_EPISODE", episodeIlUrl);
+      .replace("$EAW_IL_EPISODE", episodeIlUrl)
+      .replace("$EAW_PROXY_PART", partProxyUrl)
+      .replace("$EAW_PDP_PART", partPdpUrl)
+      .replace("$EAW_IL_PART", partIlUrl);
     element.href = href;
   });
 };
@@ -147,6 +129,10 @@ const onAisShowIdNotFound = () => {
 
 const onEpisodeIdNotFound = () => {
   document.querySelector(".js-episode-id").style.display = "none";
+}
+
+const onPartIdNotFound = () => {
+  document.querySelector(".js-part-id").style.display = "none";
 }
 
 // depending on the content class, different areas in the popup should be hidden/shown
@@ -189,7 +175,8 @@ const getContentInfo = () => {
           location,
           aisShowId,
           episodeId,
-          pdpAisId
+          pdpAisId,
+          partId,
         } = response;
 
         if (!aisShowId) {
@@ -200,9 +187,13 @@ const getContentInfo = () => {
           onEpisodeIdNotFound();
         }
 
+        if (!partId) {
+          onPartIdNotFound();
+        }
+
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);
