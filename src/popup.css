@@ -234,6 +234,14 @@ header h1 {
     display: block;
 }
 
+[data-content-class^='show'] .js-ais-show-id {
+    display: block;
+}
+
+[data-content-class^='show'] .js-episode-id {
+    display: block;
+}
+
 .content-id {
     position: relative;
     cursor: pointer;

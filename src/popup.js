@@ -1,4 +1,7 @@
 import getCommentInfo from "./comments";
+import { getShowUrls } from "./Audiothek/show";
+import { getEpisodeUrls } from "./Audiothek/episode";
+import { getPartUrls} from "./Audiothek/part";
 
 const showEnvironmentCheckbox = document.getElementById("showEnvironment");
 const contentIdInput = document.getElementById("contentIdInput");
@@ -31,8 +34,11 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
+  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId) => {
   contentIdInput.value = contentId;
+  const { showProxyUrl, showPdpUrl, ilShowUrl } = getShowUrls(aisShowId, phase, businessUnit);
+  const { episodeProxyUrl, episodePdpUrl, episodeIlUrl } = getEpisodeUrls(episodeId, pdpAisId, phase);
+  const { partProxyUrl, partPdpUrl, partIlUrl } = getPartUrls(partId, pdpAisId, phase);
 
   // idea: loop over all links, replace various placeholders with the correct data:
   // $FE_URL    = https://www.srf.ch (depending on phase)
@@ -61,6 +67,7 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       adminUrl = "https://admin.cms.zrh.test.srf.mpc";
       tweetyUrl = "https://srf-comments-dev.herokuapp.com";
       aronUrl = "https://aron.dev.srf.ch";
+      // Episode
       break;
     case "INT":
       frontendUrl = "https://www.int.srf.ch";
@@ -92,7 +99,17 @@ const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn) => {
       .replace("$ARON_URL", aronUrl)
       .replace("$PORTAL", portalUrn.split(":").reverse()[0])
       .replace("$BU", businessUnit)
-      .replace("$URN", urn);
+      .replace("$URN", urn)
+        // EAW
+      .replace("$EAW_PROXY_SHOW", showProxyUrl+urn.split(":").reverse()[0])
+      .replace("$EAW_PDP_SHOW", showPdpUrl)
+      .replace("$EAW_IL_SHOW", ilShowUrl)
+      .replace("$EAW_PROXY_EPISODE", episodeProxyUrl)
+      .replace("$EAW_PDP_EPISODE", episodePdpUrl)
+      .replace("$EAW_IL_EPISODE", episodeIlUrl)
+      .replace("$EAW_PROXY_PART", partProxyUrl)
+      .replace("$EAW_PDP_PART", partPdpUrl)
+      .replace("$EAW_IL_PART", partIlUrl);
     element.href = href;
   });
 };
@@ -105,6 +122,18 @@ const onContentIdNotFound = () => {
 const onInfoGatheringFailed = () => {
   document.querySelector(".js-contentinfo").style.display = "none";
 };
+
+const onAisShowIdNotFound = () => {
+  document.querySelector(".js-ais-show-id").style.display = "none";
+}
+
+const onEpisodeIdNotFound = () => {
+  document.querySelector(".js-episode-id").style.display = "none";
+}
+
+const onPartIdNotFound = () => {
+  document.querySelector(".js-part-id").style.display = "none";
+}
 
 // depending on the content class, different areas in the popup should be hidden/shown
 const onContentClassFound = (contentClass) => {
@@ -144,11 +173,27 @@ const getContentInfo = () => {
           hasTicker,
           businessUnit,
           location,
+          aisShowId,
+          episodeId,
+          pdpAisId,
+          partId,
         } = response;
+
+        if (!aisShowId) {
+          onAisShowIdNotFound();
+        }
+
+        if (!episodeId) {
+          onEpisodeIdNotFound();
+        }
+
+        if (!partId) {
+          onPartIdNotFound();
+        }
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
-          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn);
+          onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId);
           onContentClassFound(contentClass);
 
           getCommentInfo(location, urn);

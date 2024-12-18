@@ -8,6 +8,34 @@ const getUrn = () => {
   }
 }
 
+const getShow = () => {
+  const aisShowId = document.querySelector('meta[name="ais:show:id"]');
+  if (aisShowId) {
+    return aisShowId.getAttribute('content');
+  }
+}
+
+const getEpisode = () => {
+  const episodeId = document.querySelector('meta[name="episode:id"]');
+  if (episodeId) {
+    return episodeId.getAttribute('content');
+  }
+}
+
+const getPdpAisId = () => {
+  const pdpAisId = document.querySelector('meta[name="pdp:ais:id"]');
+  if (pdpAisId) {
+    return pdpAisId.getAttribute('content');
+  }
+}
+
+const getPartId = () => {
+  const partId = document.querySelector('meta[name="part:id"]');
+  if (partId) {
+    return partId.getAttribute('content');
+  }
+}
+
 const getPhase = () => {
   const url = window.location.href;
   const host = window.location.host;
@@ -70,6 +98,10 @@ export const getAllInfo = () => {
     hasTicker: getTicker(),
     businessUnit: getBusinessUnit(),
     location: window.location,
+    aisShowId: getShow(),
+    episodeId: getEpisode(),
+    pdpAisId: getPdpAisId(),
+    partId: getPartId(),
   };
 };
 
