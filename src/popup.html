@@ -165,6 +165,46 @@
                     </ul>
                 </div>
             </div>
+
+            <!-- Links/Actions regarding Audio shows -->
+            <div class="section__wrapper js-ais-show-id">
+                <h2 class="section__title">Audiothek</h2>
+
+                <div class="section__content">
+                    <ul class="links">
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_PROXY_SHOW" href="">Proxy Show</a></li>
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_PDP_SHOW" href="">PDP Show</a></li>
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_IL_SHOW" href="">IL Show</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Links/Actions regarding Audio episodes -->
+            <div class="section__wrapper js-episode-id">
+                <h2 class="section__title">Audiothek</h2>
+
+                <div class="section__content">
+                    <ul class="links">
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_PROXY_EPISODE" href="">Proxy Episode</a></li>
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_PDP_EPISODE" href="">PDP Episode</a></li>
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_IL_EPISODE" href="">IL Episode</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Links/Actions regarding Audio parts -->
+            <div class="section__wrapper js-part-id">
+                <h2 class="section__title">Audiothek</h2>
+
+                <div class="section__content">
+                    <ul class="links">
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_PROXY_PART" href="">Proxy Beitrag</a></li>
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_PDP_PART" href=""><s>PDP Beitrag</s></a></li>
+                        <li><a class="link--replace-url" target="_blank" data-href="$EAW_IL_PART" href="">IL Beitrag</a></li>
+                    </ul>
+                </div>
+            </div>
+
         </div>
 
         <!-- Link collection -->
@@ -175,74 +215,56 @@
                         <div class="js-dev-only">
                             <h3>Local</h3>
                             <ul>
-                                <li><a target="_blank" href="http://www.ez.srf.ch/">Frontend</a></li>
-                                <li><a target="_blank" href="http://localhost:6900">CMS (Nora)</a></li>
+                                <li><a target="_blank" href="http://www.ez.srf.ch:4200/">srf.ch</a> / <a target="_blank" href="http://www.ez.rtr.ch:4200/">rtr.ch</a></li>
+                                <li><a target="_blank" href="http://localhost:6900">Nora</a></li>
                                 <li><a target="_blank" href="http://localhost:8050">Tweety</a></li>
-                                <li><a target="_blank" href="http://www.dev.srf.ch:4200">Aron</a></li>
                             </ul>
                         </div>
 
                         <div>
                             <h3>DEV</h3>
                             <ul>
-                                <li><a target="_blank" href="https://www.dev.srf.ch">srf.ch (Dev)</a></li>
-                                <li><a target="_blank" href="https://nora.dev.srfdigital.ch">CMS (Nora)</a></li>
+                                <li><a target="_blank" href="https://www.dev.srf.ch">srf.ch</a> / <a target="_blank" href="https://www.dev.rtr.ch">rtr.ch</a></li>
+                                <li><a target="_blank" href="https://nora.dev.srfdigital.ch">Nora</a></li>
                                 <li><a target="_blank" href="https://srf-comments-dev.herokuapp.com">Tweety</a></li>
-                                <li><a target="_blank" href="https://aron.dev.srf.ch">Aron</a></li>
+                                <li class="js-dev-only">
+                                    Play
+                                    <a class="link--small" target="_blank" href="https://il-test.srgssr.ch/sam/web/switch-over-dashboard.html">SOD</a>
+                                    <a class="link--small" target="_blank" href="https://sam.srf-play-general.aws-dev.srf.ch/swagger/views/swagger-ui/index.html">Swagger</a>
+                                </li>
                             </ul>
                         </div>
 
                         <div>
                             <h3>INT</h3>
                             <ul>
-                                <li><a target="_blank" href="https://www.int.srf.ch">srf.ch (Int)</a></li>
-                                <li><a target="_blank" href="https://nora.int.srfdigital.ch">CMS (Nora)</a></li>
-                                <li><a target="_blank" href="https://play-web-staging.herokuapp.com/pac/stage/login">PAC (Play)</a></li>
+                                <li><a target="_blank" href="https://www.int.srf.ch">srf.ch</a> / <a target="_blank" href="https://www.int.rtr.ch">rtr.ch</a></li>
+                                <li><a target="_blank" href="https://nora.int.srfdigital.ch">Nora</a></li>
                                 <li><a target="_blank" href="https://srf-comments-int.herokuapp.com">Tweety</a></li>
-                                <li><a target="_blank" href="https://aron.int.srf.ch">Aron</a></li>
+                                <li class="js-dev-only">
+                                    Play
+                                    <a class="link--small" target="_blank" href="https://il-stage.srgssr.ch/sam/web/switch-over-dashboard.html">SOD</a>
+                                    <a class="link--small" target="_blank" href="https://sam.srf-play-general.aws-int.srf.ch/swagger/views/swagger-ui/index.html">Swagger</a>
+                                </li>
+                                <li><a target="_blank" href="https://play-web-staging.herokuapp.com/pac/stage/login">PAC (Play)</a></li>
                             </ul>
                         </div>
 
                         <div class="h-bg-production">
                             <h3>Production</h3>
                             <ul>
-                                <li><a target="_blank" href="https://www.srf.ch">srf.ch</a></li>
-                                <li><a target="_blank" href="https://nora.srfdigital.ch">CMS (Nora)</a></li>
-                                <li><a target="_blank" href="https://play-web.herokuapp.com/pac/production/login">PAC (Play)</a></li>
+                                <li><a target="_blank" href="https://www.srf.ch">srf.ch</a> / <a target="_blank" href="https://www.rtr.ch">rtr.ch</a></li>
+                                <li><a target="_blank" href="https://nora.srfdigital.ch">Nora</a></li>
                                 <li><a target="_blank" href="https://comments.srfdigital.ch">Tweety</a></li>
-                                <li><a target="_blank" href="https://aron.srf.ch">Aron</a></li>
+                                <li class="js-dev-only">
+                                    Play
+                                    <a class="link--small" target="_blank" href="https://il.srgssr.ch/sam/web/switch-over-dashboard.html">SOD</a>
+                                    <a class="link--small" target="_blank" href="https://sam.srf-play-general.aws.srf.ch/swagger/views/swagger-ui/index.html">Swagger</a>
+                                </li>
+                                <li><a target="_blank" href="https://play-web.herokuapp.com/pac/production/login">PAC (Play)</a></li>
                             </ul>
                         </div>
 
-                        <div class="js-dev-only">
-                            <h3>DevOps</h3>
-                            <ul>
-                                <li><a target="_blank" href="https://cms-ci-1.zrh.test.srf.mpc">Jenkins</a></li>
-                                <li><a target="_blank" href="https://kibana.zrh.production.srf.mpc/app/kibana#/dashboard/[CMS]-Messages-Dashboard">Kibana (Prod)</a></li>
-                                <li><a target="_blank" href="https://monitor.production.admin.srf.ch/cgi-bin/icinga/status.cgi?style=detail&hostgroup=team-1&allunhandledproblems">Icinga Team 1</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="js-dev-only">
-                            <h3>Design</h3>
-                            <ul>
-                                <li><a target="_blank" href="https://master--5f5f6d6a2bda13002257d0b1.chromatic.com/">Storybook Master</a></li>
-                            </ul>
-                        </div>
-                        <div class="js-dev-only">
-                            <h3>PlayNext </h3>
-                            <ul>
-                                <div class="separator">Dev</div>
-                                <li><a target="_blank" href="https://il-test.srgssr.ch/sam/web/switch-over-dashboard.html">SOD</a></li>
-                                <li><a target="_blank" href="https://sam.srf-play-general.aws-dev.srf.ch/swagger/views/swagger-ui/index.html">Swagger</a></li>
-                                <div class="separator">Int</div>
-                                <li><a target="_blank" href="https://il-stage.srgssr.ch/sam/web/switch-over-dashboard.html">SOD</a></li>
-                                <li><a target="_blank" href="https://sam.srf-play-general.aws-int.srf.ch/swagger/views/swagger-ui/index.html">Swagger</a></li>
-                                <div class="separator">Prod</div>
-                                <li><a target="_blank" href="https://il.srgssr.ch/sam/web/switch-over-dashboard.html">SOD</a></li>
-                                <li><a target="_blank" href="https://sam.srf-play-general.aws.srf.ch/swagger/views/swagger-ui/index.html">Swagger</a></li>
-                            </ul>
-                        </div>
                         <div>
                             <h3>Varia</h3>
                             <ul>
@@ -250,81 +272,6 @@
                             </ul>
                         </div>
                     </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <div class="container">
-        <div class="section js-ais-show-id">
-            <div class="section__wrapper">
-                <h2 class="section__title">Audiothek</h2>
-                <div class="section__content">
-                    <ul class="links">
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_PROXY_SHOW" href="">
-                                Proxy Show
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_PDP_SHOW" href="">
-                                PDP Show
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_IL_SHOW" href="">
-                                IL Show
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="section js-episode-id">
-            <div class="section__wrapper">
-                <h2 class="section__title">Audiothek</h2>
-                <div class="section__content">
-                    <ul class="links">
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_PROXY_EPISODE" href="">
-                                Proxy Episode
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_PDP_EPISODE" href="">
-                                PDP Episode
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_IL_EPISODE" href="">
-                                IL Episode
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <div class="section js-part-id">
-            <div class="section__wrapper">
-                <h2 class="section__title">Audiothek</h2>
-                <div class="section__content">
-                    <ul class="links">
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_PROXY_PART" href="">
-                                Proxy Beitrag
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_PDP_PART" href="">
-                                <s>PDP Beitrag</s>
-                            </a>
-                        </li>
-                        <li>
-                            <a class="link--replace-url" target="_blank" data-href="$EAW_IL_PART" href="">
-                                IL Beitrag
-                            </a>
-                        </li>
-                    </ul>
                 </div>
             </div>
         </div>
