@@ -87,7 +87,7 @@ const setupBannerCheckboxListener = () => {
   }
 
   // the links have a data attribute with the href-string that includes the placeholders
-  document.querySelectorAll(".link--replace-url").forEach((element, index) => {
+  document.querySelectorAll(".link--replace-url").forEach((element) => {
     let href = element.dataset.href;
     // replace all placeholders
     href = href
@@ -156,7 +156,7 @@ const getContentInfo = () => {
           portalUrn,
           hasTicker,
           businessUnit,
-          location,
+          origin,
           aisShowId,
           episodeId,
           pdpAisId,
@@ -168,7 +168,7 @@ const getContentInfo = () => {
           onContentIdFound(contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId);
           onContentClassFound(contentClass);
 
-          getCommentInfo(location, urn);
+          getCommentInfo(origin, urn);
 
           if (hasTicker) {
             onTickerFound();

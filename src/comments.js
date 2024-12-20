@@ -18,14 +18,14 @@ const onCommentsClosed = (publishedComments = 0) => {
   commentsNumberContainer.style.display = '';
 };
 
-const getCommentInfo = (location, urn) => {
-  const [,, contentClass, contentId] = urn.split(':');
+const getCommentInfo = (origin, urn) => {
+  const [,, contentClass] = urn.split(':');
   // only get comment info for articles
   if (contentClass !== 'article') {
     return;
   }
 
-  fetch(`${location.origin}/commentsapi/v1/public/srf/threads/${urn}/stats`)
+  fetch(`${origin}/commentsapi/v1/public/srf/threads/${urn}/stats`)
     .then((response) => response.json())
     .then((json) => {
       const isOpen = json?.threadState === 'open';
