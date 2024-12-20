@@ -5,6 +5,7 @@
   },
   "scripts": {
     "start": "parcel watch src/manifest.json --host localhost --config @parcel/config-webextension",
-    "build": "parcel build src/manifest.json --config @parcel/config-webextension --no-optimize --no-cache"
+    "build": "parcel build src/manifest.json --config @parcel/config-webextension --no-optimize --no-cache",
+    "build-firefox": "parcel build src/firefox/manifest.json --config @parcel/config-webextension --dist-dir dist-firefox --no-optimize --no-cache"
   }
 }
