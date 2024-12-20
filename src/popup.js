@@ -34,7 +34,7 @@ const setupBannerCheckboxListener = () => {
   });
 };
 
-  const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId) => {
+const onContentIdFound = (contentId, phase, portalUrn, businessUnit, urn, aisShowId, episodeId, pdpAisId, partId) => {
   contentIdInput.value = contentId;
   const { showProxyUrl, showPdpUrl, ilShowUrl } = getShowUrls(aisShowId, phase, businessUnit);
   const { episodeProxyUrl, episodePdpUrl, episodeIlUrl } = getEpisodeUrls(episodeId, pdpAisId, phase);
