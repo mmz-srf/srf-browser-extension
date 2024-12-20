@@ -123,25 +123,9 @@ const onInfoGatheringFailed = () => {
   document.querySelector(".js-contentinfo").style.display = "none";
 };
 
-const onAisShowIdNotFound = () => {
-  document.querySelector(".js-ais-show-id").style.display = "none";
-}
-
-const onEpisodeIdNotFound = () => {
-  document.querySelector(".js-episode-id").style.display = "none";
-}
-
-const onPartIdNotFound = () => {
-  document.querySelector(".js-part-id").style.display = "none";
-}
-
 // depending on the content class, different areas in the popup should be hidden/shown
 const onContentClassFound = (contentClass) => {
-  if (contentClass === "landingpage") {
-    document.body.setAttribute("data-content-class", "landingpage");
-  } else if (contentClass === "article") {
-    document.body.setAttribute("data-content-class", "article");
-  }
+  document.body.setAttribute("data-content-class", contentClass);
 };
 
 const onTickerFound = () => {
@@ -178,18 +162,6 @@ const getContentInfo = () => {
           pdpAisId,
           partId,
         } = response;
-
-        if (!aisShowId) {
-          onAisShowIdNotFound();
-        }
-
-        if (!episodeId) {
-          onEpisodeIdNotFound();
-        }
-
-        if (!partId) {
-          onPartIdNotFound();
-        }
 
         if (urn) {
           const [, , contentClass, contentId] = urn.split(":");
