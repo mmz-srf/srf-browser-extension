@@ -216,31 +216,23 @@ header h1 {
     min-height: 100px;
 }
 
+/* show/hide content depending on the mode (dev/non-dev) and/or content class
+   of the page (article, landingpage, show, episode, part) */
 .js-dev-only,
 .js-page-actions,
-.js-article-actions {
+.js-article-actions,
+.js-ais-show-id,
+.js-episode-id,
+.js-part-id {
     display: none;
 }
 
-[data-mode^='dev'] .js-dev-only {
-    display: block;
-}
-
-[data-content-class^='landingpage'] .js-page-actions {
-    display: block;
-}
-
-[data-content-class^='article'] .js-article-actions {
-    display: block;
-}
-
-[data-content-class^='show'] .js-ais-show-id {
-    display: block;
-}
-
-[data-content-class^='show'] .js-episode-id {
-    display: block;
-}
+[data-mode='dev'] .js-dev-only {display: block;}
+[data-content-class='landingpage'] .js-page-actions {display: block;}
+[data-content-class='article'] .js-article-actions {display: block;}
+[data-content-class='show'] .js-ais-show-id {display: block;}
+[data-content-class='eawEpisode'] .js-episode-id {display: block;}
+[data-content-class='eawEpisodePart'] .js-part-id {display: block;}
 
 .content-id {
     position: relative;
