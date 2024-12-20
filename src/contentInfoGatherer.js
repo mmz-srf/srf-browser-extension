@@ -97,7 +97,7 @@ export const getAllInfo = () => {
     portalUrn: getPortalUrn(),
     hasTicker: getTicker(),
     businessUnit: getBusinessUnit(),
-    location: window.location,
+    origin: window.location.origin,
     aisShowId: getShow(),
     episodeId: getEpisode(),
     pdpAisId: getPdpAisId(),
@@ -107,7 +107,7 @@ export const getAllInfo = () => {
 
 chrome.runtime.onMessage.addListener(
   (request, sender, callback) => {
-    if (request.action == "getContentInfo") {
+    if (request.action === "getContentInfo") {
       callback(getAllInfo());
     }
   }
